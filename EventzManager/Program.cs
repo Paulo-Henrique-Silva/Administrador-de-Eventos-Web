@@ -1,6 +1,14 @@
+using EventzManager.Modelos;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddDbContext<BancoDeDados>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Connection"));
+});
+
 builder.Services.AddRazorPages();
 
 var app = builder.Build();
