@@ -13,8 +13,9 @@ namespace EventzManager.Modelos
         public uint Id { get; set; }
 
         [Column("usuario_id")]
+        [ForeignKey("usuario_id")]
         [Required]
-        public Usuario UsuarioId { get; set; } = new Usuario();
+        public Usuario Usuario { get; set; } = new Usuario();
 
         [Column("titulo")]
         [DisplayName("Título")]

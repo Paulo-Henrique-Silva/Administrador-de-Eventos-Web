@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace EventzManager.Migrations
 {
     /// <inheritdoc />
-    public partial class d : Migration
+    public partial class ImplementacaoBd : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -32,7 +32,7 @@ namespace EventzManager.Migrations
                 {
                     id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    UsuarioIdId = table.Column<long>(type: "bigint", nullable: false),
+                    usuarioid = table.Column<long>(name: "usuario_id", type: "bigint", nullable: false),
                     titulo = table.Column<string>(type: "nvarchar(80)", maxLength: 80, nullable: false),
                     descricao = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: true),
                     data = table.Column<DateTime>(type: "datetime2", nullable: false)
@@ -41,17 +41,17 @@ namespace EventzManager.Migrations
                 {
                     table.PrimaryKey("PK_tb_eventos", x => x.id);
                     table.ForeignKey(
-                        name: "FK_tb_eventos_tb_usuarios_UsuarioIdId",
-                        column: x => x.UsuarioIdId,
+                        name: "FK_tb_eventos_tb_usuarios_usuario_id",
+                        column: x => x.usuarioid,
                         principalTable: "tb_usuarios",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_tb_eventos_UsuarioIdId",
+                name: "IX_tb_eventos_usuario_id",
                 table: "tb_eventos",
-                column: "UsuarioIdId");
+                column: "usuario_id");
         }
 
         /// <inheritdoc />

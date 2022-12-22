@@ -46,12 +46,12 @@ namespace EventzManager.Migrations
                         .HasColumnType("nvarchar(80)")
                         .HasColumnName("titulo");
 
-                    b.Property<long>("UsuarioIdId")
+                    b.Property<long>("usuario_id")
                         .HasColumnType("bigint");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UsuarioIdId");
+                    b.HasIndex("usuario_id");
 
                     b.ToTable("tb_eventos");
                 });
@@ -90,13 +90,13 @@ namespace EventzManager.Migrations
 
             modelBuilder.Entity("EventzManager.Modelos.Evento", b =>
                 {
-                    b.HasOne("EventzManager.Modelos.Usuario", "UsuarioId")
+                    b.HasOne("EventzManager.Modelos.Usuario", "Usuario")
                         .WithMany()
-                        .HasForeignKey("UsuarioIdId")
+                        .HasForeignKey("usuario_id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("UsuarioId");
+                    b.Navigation("Usuario");
                 });
 #pragma warning restore 612, 618
         }
