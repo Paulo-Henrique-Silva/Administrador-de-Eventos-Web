@@ -4,3 +4,39 @@
     Layout = "/Pages/Shared/_LayoutLogin.cshtml";
     ViewData["Title"] = "Cadastro";
 }
+
+<div class="card">
+    <div class="card-body">
+        <form method="post">
+            <div class="text-center">
+                <img class="mb-1 img-fluid" src="/imagens/logo_azul.svg" alt="Eventz Manager" arial-label="Eventz Manager" />
+                <h1 class="card-title">Cadastro</h1>
+            </div>
+
+            <div class="mb-3">
+                <input class="form-control" type="text" placeholder="Nome" />
+                <span class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <input class="form-control" type="email" placeholder="Email" />
+                <span class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <input class="form-control" type="password" placeholder="Senha" />
+                <span class="text-danger"></span>
+            </div>
+
+            <button class="btn btn-primary w-100 mb-4" type="submit">Cadastrar</button>
+        </form>
+
+        <div class="text-center">
+            Já tem uma conta? <a class="link-primary" asp-area="" asp-page="/Login/Entrar">Entre</a>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

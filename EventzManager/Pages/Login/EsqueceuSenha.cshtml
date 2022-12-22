@@ -4,3 +4,30 @@
     Layout = "/Pages/Shared/_LayoutLogin.cshtml";
     ViewData["Title"] = "Esqueceu Senha";
 }
+
+<div class="card">
+    <div class="card-body">
+        <form method="post">
+            <div class="text-center mb-3">
+                <img class="mb-1 img-fluid" src="/imagens/logo_azul.svg" alt="Eventz Manager" arial-label="Eventz Manager" />
+                <h1 class="card-title">Recuperação</h1>
+                <p class="card-text">Insira o email da sua conta para iniciarmos a recuperação</p>
+            </div>
+
+            <div class="mb-3">
+                <input class="form-control" type="email" placeholder="Email" />
+                <span class="text-danger"></span>
+            </div>
+
+            <button class="btn btn-primary w-100 mb-4" type="submit">Enviar</button>
+        </form>
+
+        <div class="text-center">
+            Ainda não tem uma conta? <a class="link-primary" asp-area="" asp-page="/Login/Cadastro">Cadastre-se</a>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+        <partial name="_ValidationScriptsPartial" />
+}
