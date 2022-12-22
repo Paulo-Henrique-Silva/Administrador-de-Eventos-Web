@@ -18,6 +18,13 @@
 
   <ItemGroup>
     <Folder Include="Migrations\" />
+    <Folder Include="wwwroot\imagens\" />
+    <Folder Include="Pages\Login\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\imagens\logo.png" />
+    <None Include="wwwroot\imagens\logo.svg" />
   </ItemGroup>
 
 </Project>

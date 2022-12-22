@@ -13,7 +13,7 @@ namespace EventzManager.Modelos
         public uint Id { get; set; }
 
         [Column("usuario_id")]
-        [ForeignKey("usuario_id")]
+        [ForeignKey("usuario_id")] //relação de 1:M
         [Required]
         public Usuario Usuario { get; set; } = new Usuario();
 
