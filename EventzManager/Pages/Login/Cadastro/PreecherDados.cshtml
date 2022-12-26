@@ -1,13 +1,13 @@
 ﻿@page
-@model EventzManager.Pages.Login.CadastroModel
+@model EventzManager.Pages.Login.Cadastro.PreecherDadosModel
 @{
     Layout = "/Pages/Shared/_LayoutLogin.cshtml";
     ViewData["Title"] = "Cadastro";
 }
 
-<div class="card">
+<div class="card m-auto">
     <div class="card-body">
-        <form method="post">
+        <form method="post" asp-page-handler="Cadastrar">
             <div class="text-center">
                 <img class="mb-1 img-fluid" src="/imagens/logo_azul.svg" alt="Eventz Manager" arial-label="Eventz Manager" />
                 <h1 class="card-title">Cadastro</h1>

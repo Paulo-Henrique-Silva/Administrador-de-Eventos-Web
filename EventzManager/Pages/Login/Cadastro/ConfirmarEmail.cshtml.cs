@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace EventzManager.Pages.Login
+namespace EventzManager.Pages.Login.Cadastro
 {
-    public class EsqueceuSenhaModel : PageModel
+    public class ConfirmarEmailModel : PageModel
     {
         public void OnGet()
         {

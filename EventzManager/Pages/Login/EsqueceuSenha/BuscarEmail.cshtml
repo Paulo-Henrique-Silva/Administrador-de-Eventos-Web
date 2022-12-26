@@ -1,13 +1,13 @@
 ﻿@page
-@model EventzManager.Pages.Login.EsqueceuSenhaModel
+@model EventzManager.Pages.Login.EsqueceuSenha.BuscarEmailModel
 @{
     Layout = "/Pages/Shared/_LayoutLogin.cshtml";
-    ViewData["Title"] = "Esqueceu Senha";
+    ViewData["Title"] = "Buscar Email";
 }
 
-<div class="card">
+<div class="card m-auto">
     <div class="card-body">
-        <form method="post">
+        <form method="post" asp-page-handler="Buscar">
             <div class="text-center mb-3">
                 <img class="mb-1 img-fluid" src="/imagens/logo_azul.svg" alt="Eventz Manager" arial-label="Eventz Manager" />
                 <h1 class="card-title">Recuperação</h1>
@@ -19,11 +19,11 @@
                 <span class="text-danger"></span>
             </div>
 
-            <button class="btn btn-primary w-100 mb-4" type="submit">Enviar</button>
+            <button class="btn btn-primary w-100 mb-4" type="submit">Buscar</button>
         </form>
 
         <div class="text-center">
-            Ainda não tem uma conta? <a class="link-primary" asp-area="" asp-page="/Login/Cadastro">Cadastre-se</a>
+            Ainda não tem uma conta? <a class="link-primary" asp-area="" asp-page="/Login/Cadastro/PreecherDados">Cadastre-se</a>
         </div>
     </div>
 </div>

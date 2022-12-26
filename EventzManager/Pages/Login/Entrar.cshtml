@@ -5,7 +5,7 @@
     ViewData["Title"] = "Entrar";
 }
 
-<div class="card">
+<div class="card m-auto">
     <div class="card-body">
         <form method="post">
             <div class="text-center">
@@ -20,7 +20,7 @@
 
             <div class="mb-3">
                 <div class="text-end">
-                    <a class="link-primary" asp-area="" asp-page="/Login/EsqueceuSenha">Esqueci a senha</a>
+                    <a class="link-primary" asp-area="" asp-page="/Login/EsqueceuSenha/BuscarEmail">Esqueci a senha</a>
                 </div>
                 <input class="form-control" type="password" placeholder="Senha"/>
                 <span class="text-danger"></span>
@@ -29,7 +29,7 @@
             <button class="btn btn-primary w-100 mb-4" type="submit">Entrar</button>
         </form>
 
-        <a class="btn btn-outline-primary w-100" asp-area="" asp-page="/Login/Cadastro">Cadastrar</a>
+        <a class="btn btn-outline-primary w-100" asp-area="" asp-page="/Login/Cadastro/PreecherDados">Cadastrar</a>
     </div>
 </div>
 

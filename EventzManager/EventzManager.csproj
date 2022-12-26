@@ -18,7 +18,7 @@
 
   <ItemGroup>
     <Folder Include="Migrations\" />
-    <Folder Include="Pages\Main\" />
+    <Folder Include="Pages\Principal\" />
   </ItemGroup>
 
   <ItemGroup>

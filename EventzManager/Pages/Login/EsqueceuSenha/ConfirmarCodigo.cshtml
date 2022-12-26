@@ -1,0 +1,29 @@
+﻿@page
+@model EventzManager.Pages.Login.EsqueceuSenha.ConfirmarCodigoModel
+@{
+    Layout = "/Pages/Shared/_LayoutLogin.cshtml";
+    ViewData["Title"] = "Confirmar Código";
+}
+
+<div class="card m-auto">
+    <div class="card-body">
+        <form method="post" asp-page-handler="Confirmar">
+            <div class="text-center mb-3">
+                <img class="mb-1 img-fluid" src="/imagens/logo_azul.svg" alt="Eventz Manager" arial-label="Eventz Manager" />
+                <h1 class="card-title">Recuperação</h1>
+                <p class="card-text">Enviamos um código de recuperação para o email ‘example@email.com’</p>
+            </div>
+
+            <div class="mb-3">
+                <input class="form-control" type="text" placeholder="Código" />
+                <span class="text-danger"></span>
+            </div>
+
+            <button class="btn btn-primary w-100" type="submit">Confirmar</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

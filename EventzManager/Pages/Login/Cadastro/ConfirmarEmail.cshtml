@@ -1,0 +1,29 @@
+﻿@page
+@model EventzManager.Pages.Login.Cadastro.ConfirmarEmailModel
+@{
+    Layout = "/Pages/Shared/_LayoutLogin.cshtml";
+    ViewData["Title"] = "Confirmar Email";
+}
+
+<div class="card m-auto">
+    <div class="card-body">
+        <form method="post">
+            <div class="text-center mb-3">
+                <img class="mb-1 img-fluid" src="/imagens/logo_azul.svg" alt="Eventz Manager" arial-label="Eventz Manager" />
+                <h1 class="card-title">Confirmação</h1>
+                <p class="card-text">Enviamos um código de confirmação para o email ‘example@email.com’</p>
+            </div>
+
+            <div class="mb-3">
+                <input class="form-control" type="text" placeholder="Código" />
+                <span class="text-danger"></span>
+            </div>
+
+            <button class="btn btn-primary w-100" type="submit">Confirmar</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts{
+        <partial name="_ValidationScriptsPartial" />
+}

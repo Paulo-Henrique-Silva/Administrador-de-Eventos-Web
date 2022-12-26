@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace EventzManager.Pages.Login
+namespace EventzManager.Pages.Login.EsqueceuSenha
 {
-    public class CadastroModel : PageModel
+    public class CriarNovaSenhaModel : PageModel
     {
         public void OnGet()
         {

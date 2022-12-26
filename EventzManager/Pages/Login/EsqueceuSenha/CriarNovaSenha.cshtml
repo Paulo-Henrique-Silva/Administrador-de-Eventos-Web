@@ -1,0 +1,34 @@
+﻿@page
+@model EventzManager.Pages.Login.EsqueceuSenha.CriarNovaSenhaModel
+@{
+    Layout = "/Pages/Shared/_LayoutLogin.cshtml";
+    ViewData["Title"] = "Criar senha";
+}
+
+<div class="card m-auto">
+    <div class="card-body">
+        <form method="post">
+            <div class="text-center mb-3">
+                <img class="mb-1 img-fluid" src="/imagens/logo_azul.svg" alt="Eventz Manager" arial-label="Eventz Manager" />
+                <h1 class="card-title">Nova senha</h1>
+                <p class="card-text">Crie uma nova para sua conta</p>
+            </div>
+
+            <div class="mb-3">
+                <input class="form-control" type="password" placeholder="Nova senha" />
+                <span class="text-danger"></span>
+            </div>
+            
+            <div class="mb-3">
+                <input class="form-control" type="password" placeholder="Confirmar nova senha" />
+                <span class="text-danger"></span>
+            </div>
+
+            <button class="btn btn-primary w-100" type="submit">Salvar</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts{
+        <partial name="_ValidationScriptsPartial" />
+}
