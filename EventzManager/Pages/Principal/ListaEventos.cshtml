@@ -2,4 +2,43 @@
 @model EventzManager.Pages.Principal.ListaEventosModel
 @{
     Layout = "/Pages/Shared/_LayoutPrincipal.cshtml";
+    ViewData["Title"] = "Lista";
 }
+
+<div class="col-12 col-sm-10 col-md-8 m-auto text-center">
+    <a class="btn btn-secondary" asp-area="" asp-page="/Login/Conta/AlterarDados">+ Adicionar</a>
+    <hr />
+
+    <!--Eventos do usuário-->
+    <div class="card mb-2">
+        <div class="card-body row align-items-center">
+            <div class="col-sm-12 col-md-7 my-2 text-start">
+                <p class="card-title fw-bold">TÍTULO 1</p>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio eu feugiat pretium nibh ipsum consequat nisl vel. Sed risus pretium qua</p>
+            </div>
+            <div class="col-6 col-md-3 my-2 text-center">
+                <span class="text-nowrap">@DateTime.Today.ToShortDateString()</span>
+                <span class="text-nowrap">@DateTime.Now.ToShortTimeString()</span>
+            </div>
+            <div class="col-6 col-md-1 my-2 text-center">
+                <div class="dropend">
+                    <button class="btn btn-outline-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">&brvbar;</button>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <img class="me-2 img-fluid" src="/imagens/editar.svg" alt="EDITAR" aria-label="EDITAR" />
+                                Editar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <img class="me-2 img-fluid" src="/imagens/excluir.svg" alt="EXCLUIR" aria-label="EXCLUIR" />
+                                Excluir
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
