@@ -8,5 +8,10 @@ namespace EventzManager.Pages.Login
         public void OnGet()
         {
         }
+
+        public IActionResult OnPostEntrar()
+        {
+            return RedirectToPage("/Principal/ListaEventos");
+        }
     }
 }

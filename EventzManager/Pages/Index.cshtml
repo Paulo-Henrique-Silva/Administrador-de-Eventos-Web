@@ -16,16 +16,18 @@
     <link rel="stylesheet" href="~/EventzManager.styles.css" asp-append-version="true" />
 
     <style>
-        /*body{
-            background-image: url('imagens/bg.png');
-            background-repeat: no-repeat;
-            background-attachment: scroll;
-        }*/
+        .navbar {
+            background-image: linear-gradient(var(--azul1), var(--azul2));
+        }
+
+        .navbar *{
+            color: var(--branco-suave);
+        }
     </style>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white box-shadow border-bottom mb-3">
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center" asp-area="" asp-page="/Index">
                     <img class="me-2 img-fluid" src="/imagens/logo_branco.svg" alt="LOGO" aria-label="LOGO"/>
