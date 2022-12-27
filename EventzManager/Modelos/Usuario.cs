@@ -1,4 +1,6 @@
-﻿using System.ComponentModel;
+﻿using Microsoft.EntityFrameworkCore;
+using Org.BouncyCastle.Asn1.X509;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.CodeAnalysis;
@@ -6,6 +8,7 @@ using System.Diagnostics.CodeAnalysis;
 namespace EventzManager.Modelos
 {
     [Table("tb_usuarios")]
+    [Index(nameof(Email), IsUnique = true)]
     public class Usuario
     {
         [Column("id")]

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EventzManager.Migrations
 {
     [DbContext(typeof(BancoDeDados))]
-    [Migration("20221222123901_ImplementacaoBd")]
-    partial class ImplementacaoBd
+    [Migration("20221227140507_PequenaCorrecaoBd")]
+    partial class PequenaCorrecaoBd
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -87,6 +87,9 @@ namespace EventzManager.Migrations
                         .HasColumnName("senha");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Email")
+                        .IsUnique();
 
                     b.ToTable("tb_usuarios");
                 });

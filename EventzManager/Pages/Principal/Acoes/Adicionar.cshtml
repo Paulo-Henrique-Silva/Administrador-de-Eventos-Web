@@ -1,0 +1,42 @@
+﻿@page
+@model EventzManager.Pages.Principal.Acoes.AdicionarModel
+@{
+    Layout = "/Pages/Shared/_LayoutPrincipal.cshtml";
+    ViewData["Title"] = "Adicionar";
+}
+
+
+<div class="mb-3">
+    <a class="btn btn-secondary" asp-area="" asp-page="/Principal/ListaEventos">&ang; Voltar</a>
+</div>
+
+<div class="acoes-form card m-auto">
+    <div class="card-body">
+        <form method="post" asp-page-handler="Adicionar">
+            <div class="text-center">
+                <p class="card-title fw-bold">Preencha as informações</p>
+            </div>
+
+            <div class="mb-3">
+                <input class="form-control" type="text" placeholder="Título Evento" />
+                <span class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <textarea class="form-control" type="text" placeholder="Descrição" rows="3"></textarea>
+                <span class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <input class="form-control" type="datetime-local" placeholder="Data" />
+                <span class="text-danger"></span>
+            </div>
+
+            <button class="btn btn-primary w-100" type="submit">Adicionar</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts{
+        <partial name="_ValidationScriptsPartial" />
+}

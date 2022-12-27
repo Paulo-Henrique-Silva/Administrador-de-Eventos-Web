@@ -1,0 +1,68 @@
+﻿@page
+@model EventzManager.Pages.Principal.Conta.AlterarSenhaModel
+@{
+    Layout = "/Pages/Shared/_LayoutPrincipal.cshtml";
+    ViewData["Title"] = "Alterar senha";
+}
+
+<div class="row mb-3">
+    <div class="col-6">
+        <a class="btn btn-secondary" asp-area="" asp-page="/Principal/ListaEventos">&ang; Voltar</a>
+    </div>
+
+    <div class="dropend col-6 text-end">
+        <button class="btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img class="me-2" src="/imagens/mais_acoes.svg" alt="MAIS ACOES" aria-label="MAIS ACOES" /> Mais ações
+        </button>
+        <ul class="dropdown-menu">
+            <li>
+                <a class="dropdown-item" href="#">
+                    <img class="me-2 img-fluid center-block" src="/imagens/sair.svg" alt="SAIR" aria-label="SAIR" /> Sair
+                </a>
+            </li>
+            <li>
+                <a class="dropdown-item" href="#">
+                    <img class="me-2 img-fluid center-block" src="/imagens/excluir.svg" alt="EXCLUIR" aria-label="EXCLUIR" /> Excluir conta
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="acoes-form card m-auto">
+    <div class="card-body">
+        <form method="post" asp-page-handler="Alterar">
+            <div class="text-center">
+                <p class="card-title fw-bold">Alterar senha</p>
+            </div>
+
+            <div class="mb-3">
+                <input class="form-control" type="password" placeholder="Senha atual" />
+                <span class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <input class="form-control" type="password" placeholder="Nova senha"/>
+                <span class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <input class="form-control" type="password" placeholder="Confirme nova senha" />
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-6 mb-2">
+                    <button class="btn btn-primary w-100" type="submit">Salvar</button>
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <button class="btn btn-secondary w-100" type="reset">Cancelar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

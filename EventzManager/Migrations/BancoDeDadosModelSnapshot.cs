@@ -85,6 +85,9 @@ namespace EventzManager.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Email")
+                        .IsUnique();
+
                     b.ToTable("tb_usuarios");
                 });
 
