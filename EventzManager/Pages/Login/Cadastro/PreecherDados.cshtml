@@ -14,17 +14,22 @@
             </div>
 
             <div class="mb-3">
-                <input class="form-control" type="text" placeholder="Nome" />
-                <span class="text-danger"></span>
+                <input class="form-control" type="text" placeholder="Nome" asp-for="@Model.NovoUsario.Nome" />
+                <span class="text-danger" asp-validation-for="@Model.NovoUsario.Nome"></span>
             </div>
 
             <div class="mb-3">
-                <input class="form-control" type="email" placeholder="Email" />
-                <span class="text-danger"></span>
+                <input class="form-control" type="email" placeholder="Email" asp-for="@Model.NovoUsario.Email" />
+                <span class="text-danger" asp-validation-for="@Model.NovoUsario.Email"></span>
             </div>
 
             <div class="mb-3">
-                <input class="form-control" type="password" placeholder="Senha" />
+                <input class="form-control" type="password" placeholder="Senha" asp-for="@Model.NovoUsario.Senha" />
+                <span class="text-danger" asp-validation-for="@Model.NovoUsario.Senha"></span>
+            </div>
+            
+            <div class="mb-3">
+                <input class="form-control" type="password" placeholder="Confirme senha" />
                 <span class="text-danger"></span>
             </div>
 
