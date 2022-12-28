@@ -14,16 +14,16 @@
             </div>
 
             <div class="mb-3">
-                <input class="form-control" type="email" placeholder="Email"/>
-                <span class="text-danger"></span>
+                <input class="form-control" type="email" placeholder="Email" asp-for="@Model.Usuario.Email" />
+                <span class="text-danger" asp-validation-for="@Model.Usuario.Email"></span>
             </div>
 
             <div class="mb-3">
                 <div class="text-end">
                     <a class="link-primary" asp-area="" asp-page="/Login/EsqueceuSenha/BuscarEmail">Esqueci a senha</a>
                 </div>
-                <input class="form-control" type="password" placeholder="Senha"/>
-                <span class="text-danger"></span>
+                <input class="form-control" type="password" placeholder="Senha" asp-for="@Model.Usuario.Senha" />
+                <span class="text-danger" asp-validation-for="@Model.Usuario.Senha"></span>
             </div>
 
             <button class="btn btn-primary w-100 mb-4" type="submit">Entrar</button>

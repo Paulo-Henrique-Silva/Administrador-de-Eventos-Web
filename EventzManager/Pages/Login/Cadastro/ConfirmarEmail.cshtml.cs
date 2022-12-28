@@ -20,8 +20,7 @@ namespace EventzManager.Pages.Login.Cadastro
 
         public void OnGet(uint id)
         {
-            Usuario? usuarioQuery; //permite valores nulos
-            usuarioQuery = Contexto.Usuarios.Find(id);
+            Usuario? usuarioQuery = Contexto.Usuarios.Find(id);
 
             if (usuarioQuery != null)
             {
@@ -64,8 +63,7 @@ namespace EventzManager.Pages.Login.Cadastro
 
         public void OnGetCodigoErrado(uint id)
         {
-            Usuario? usuarioQuery; //permite valores nulos
-            usuarioQuery = Contexto.Usuarios.Find(id);
+            Usuario? usuarioQuery = Contexto.Usuarios.Find(id);
 
             if (usuarioQuery != null)
             {
@@ -78,7 +76,28 @@ namespace EventzManager.Pages.Login.Cadastro
 
         public IActionResult OnPostConfirmar(string CodigoInserido)
         {
-            return CodigoInserido == NovoUsuario.CodigoSeguranca ? RedirectToPage("/Principal/ListaEventos", new { NovoUsuario.Id }) : RedirectToPage("", "CodigoErrado", new { NovoUsuario.Id });
+            if (CodigoInserido == NovoUsuario.CodigoSeguranca)
+            {
+                try
+                {
+                    Usuario? usuarioQuery = Contexto.Usuarios.Find(NovoUsuario.Id);
+
+                    if (usuarioQuery == null)
+                        throw new Exception("Usuário não encontrado.");
+
+                    usuarioQuery.EmailFoiVerificado = true;
+                    Contexto.SaveChanges();
+
+                    return RedirectToPage("/Principal/ListaEventos", new { NovoUsuario.Id });
+                }
+                catch (Exception ex)
+                {
+                    TempData["erro"] = ex.Message + "\nUm erro ocorreu. Por favor, tente novamente.";
+                    return Page();
+                }
+            }
+
+            return RedirectToPage("", "CodigoErrado", new { NovoUsuario.Id });
         }
 
         private IActionResult VoltarAoCadastro() 
