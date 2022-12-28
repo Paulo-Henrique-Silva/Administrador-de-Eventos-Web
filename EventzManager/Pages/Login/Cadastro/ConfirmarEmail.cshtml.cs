@@ -29,7 +29,7 @@ namespace EventzManager.Pages.Login.Cadastro
                 var emailObjeto = new MimeMessage();
                 var smtp = new SmtpClient();
 
-                //insira o seu próprio email de personalizado aqui
+                //insira o seu próprio email personalizado aqui
                 string email = "";
                 string senha = "";
 
