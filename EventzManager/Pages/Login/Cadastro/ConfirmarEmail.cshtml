@@ -17,6 +17,7 @@
         <form method="post" asp-page-handler="Confirmar">
             <!--Salva para garantir crição da conta-->
             <input type="hidden" asp-for="@Model.NovoUsuario.Id" />
+            <input type="hidden" asp-for="@Model.NovoUsuario.CodigoSeguranca" />
 
             <div class="text-center mb-3">
                 <img class="mb-1 img-fluid" src="/imagens/logo_azul.svg" alt="Eventz Manager" arial-label="Eventz Manager" />
@@ -26,7 +27,7 @@
 
             <div class="mb-3">
                 <input class="form-control" type="text" placeholder="Código" name="CodigoInserido" required/>
-                <span class="text-danger"></span>
+                <span class="text-danger">@TempData["codigo"]</span>
             </div>
 
             <button class="btn btn-primary w-100" type="submit">Confirmar</button>

@@ -1,6 +1,7 @@
 using EventzManager.Modelos;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.SignalR.Protocol;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace EventzManager.Pages.Login.Cadastro
@@ -22,12 +23,12 @@ namespace EventzManager.Pages.Login.Cadastro
             
         }
 
-        public IActionResult OnPostCadastrar()
+        public IActionResult OnPostCadastrar(string confirmacaoSenha)
         {
             if (Contexto.Usuarios.Any(x => x.Email == NovoUsuario.Email))
-            {
                 ModelState.AddModelError("NovoUsuario.Email", "Este email já está cadastrado.");
-            }
+            else if (confirmacaoSenha != NovoUsuario.Senha)
+                ModelState.AddModelError("NovoUsuario.Senha", "Os campos de senha e confirmar senha precisam ser iguais.");
 
             if (ModelState.IsValid)
             {
