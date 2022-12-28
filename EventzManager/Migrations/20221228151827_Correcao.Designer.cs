@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EventzManager.Migrations
 {
     [DbContext(typeof(BancoDeDados))]
-    [Migration("20221227140507_PequenaCorrecaoBd")]
-    partial class PequenaCorrecaoBd
+    [Migration("20221228151827_Correcao")]
+    partial class Correcao
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -68,11 +68,21 @@ namespace EventzManager.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
+                    b.Property<string>("CodigoSeguranca")
+                        .IsRequired()
+                        .HasMaxLength(6)
+                        .HasColumnType("nvarchar(6)")
+                        .HasColumnName("codigo_seguranca");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasMaxLength(320)
                         .HasColumnType("nvarchar(320)")
                         .HasColumnName("email");
+
+                    b.Property<bool>("EmailFoiVerificado")
+                        .HasColumnType("bit")
+                        .HasColumnName("email_foi_verificado");
 
                     b.Property<string>("Nome")
                         .IsRequired()

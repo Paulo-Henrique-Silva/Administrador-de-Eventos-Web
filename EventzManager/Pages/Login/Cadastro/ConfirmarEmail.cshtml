@@ -5,18 +5,28 @@
     ViewData["Title"] = "Confirmar Email";
 }
 
+@if (TempData["erro"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["erro"]
+    </div>
+}
+
 <div class="card m-auto">
     <div class="card-body">
         <form method="post" asp-page-handler="Confirmar">
+            <!--Salva para garantir crição da conta-->
+            <input type="hidden" asp-for="@Model.NovoUsuario.Id" />
+
             <div class="text-center mb-3">
                 <img class="mb-1 img-fluid" src="/imagens/logo_azul.svg" alt="Eventz Manager" arial-label="Eventz Manager" />
                 <h1 class="card-title">Confirmação</h1>
-                <p class="card-text">Enviamos um código de confirmação para o email <b>‘@Model.NovoUsario.Email’</b>. Por favor, insira-o no campo abaixo:</p>
+                <p class="card-text">Enviamos um código de confirmação para o email <b>‘@Model.NovoUsuario.Email’</b>. Por favor, insira-o no campo abaixo:</p>
             </div>
 
             <div class="mb-3">
-                <input class="form-control" type="text" placeholder="Código" name="CodigoInserido"/>
-                <span class="text-danger" asp-validation-for="@Model.Codigo"></span>
+                <input class="form-control" type="text" placeholder="Código" name="CodigoInserido" required/>
+                <span class="text-danger"></span>
             </div>
 
             <button class="btn btn-primary w-100" type="submit">Confirmar</button>

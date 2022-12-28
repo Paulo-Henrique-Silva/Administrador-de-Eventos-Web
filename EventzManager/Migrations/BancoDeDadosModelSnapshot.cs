@@ -65,11 +65,21 @@ namespace EventzManager.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
+                    b.Property<string>("CodigoSeguranca")
+                        .IsRequired()
+                        .HasMaxLength(6)
+                        .HasColumnType("nvarchar(6)")
+                        .HasColumnName("codigo_seguranca");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasMaxLength(320)
                         .HasColumnType("nvarchar(320)")
                         .HasColumnName("email");
+
+                    b.Property<bool>("EmailFoiVerificado")
+                        .HasColumnType("bit")
+                        .HasColumnName("email_foi_verificado");
 
                     b.Property<string>("Nome")
                         .IsRequired()

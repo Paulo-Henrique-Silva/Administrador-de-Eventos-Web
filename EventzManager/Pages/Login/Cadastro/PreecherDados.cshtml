@@ -5,6 +5,13 @@
     ViewData["Title"] = "Cadastro";
 }
 
+@if (TempData["erro"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["erro"]
+    </div>
+}
+
 <div class="card m-auto">
     <div class="card-body">
         <form method="post" asp-page-handler="Cadastrar">
@@ -14,18 +21,18 @@
             </div>
 
             <div class="mb-3">
-                <input class="form-control" type="text" placeholder="Nome" asp-for="@Model.NovoUsario.Nome" />
-                <span class="text-danger" asp-validation-for="@Model.NovoUsario.Nome"></span>
+                <input class="form-control" type="text" placeholder="Nome" asp-for="@Model.NovoUsuario.Nome" />
+                <span class="text-danger" asp-validation-for="@Model.NovoUsuario.Nome"></span>
             </div>
 
             <div class="mb-3">
-                <input class="form-control" type="email" placeholder="Email" asp-for="@Model.NovoUsario.Email" />
-                <span class="text-danger" asp-validation-for="@Model.NovoUsario.Email"></span>
+                <input class="form-control" type="email" placeholder="Email" asp-for="@Model.NovoUsuario.Email" />
+                <span class="text-danger" asp-validation-for="@Model.NovoUsuario.Email"></span>
             </div>
 
             <div class="mb-3">
-                <input class="form-control" type="password" placeholder="Senha" asp-for="@Model.NovoUsario.Senha" />
-                <span class="text-danger" asp-validation-for="@Model.NovoUsario.Senha"></span>
+                <input class="form-control" type="password" placeholder="Senha" asp-for="@Model.NovoUsuario.Senha" />
+                <span class="text-danger" asp-validation-for="@Model.NovoUsuario.Senha"></span>
             </div>
             
             <div class="mb-3">
