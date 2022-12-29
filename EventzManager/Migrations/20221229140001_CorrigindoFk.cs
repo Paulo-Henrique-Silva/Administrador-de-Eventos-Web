@@ -5,7 +5,7 @@
 namespace EventzManager.Migrations
 {
     /// <inheritdoc />
-    public partial class Correcao : Migration
+    public partial class CorrigindoFk : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

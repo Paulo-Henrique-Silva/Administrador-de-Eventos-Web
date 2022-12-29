@@ -46,14 +46,15 @@ namespace EventzManager.Migrations
                         .HasColumnType("nvarchar(80)")
                         .HasColumnName("titulo");
 
-                    b.Property<long>("usuario_id")
-                        .HasColumnType("bigint");
+                    b.Property<long>("UsuarioId")
+                        .HasColumnType("bigint")
+                        .HasColumnName("usuario_id");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("usuario_id");
+                    b.HasIndex("UsuarioId");
 
-                    b.ToTable("tb_eventos");
+                    b.ToTable("tb_eventos", (string)null);
                 });
 
             modelBuilder.Entity("EventzManager.Modelos.Usuario", b =>
@@ -98,14 +99,14 @@ namespace EventzManager.Migrations
                     b.HasIndex("Email")
                         .IsUnique();
 
-                    b.ToTable("tb_usuarios");
+                    b.ToTable("tb_usuarios", (string)null);
                 });
 
             modelBuilder.Entity("EventzManager.Modelos.Evento", b =>
                 {
                     b.HasOne("EventzManager.Modelos.Usuario", "Usuario")
                         .WithMany()
-                        .HasForeignKey("usuario_id")
+                        .HasForeignKey("UsuarioId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

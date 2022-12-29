@@ -24,6 +24,8 @@
                 <p class="card-title fw-bold">Preencha as informações</p>
             </div>
 
+            <input class="form-control" hidden asp-for="@Model.NovoEvento.Usuario"/>
+
             <div class="mb-3">
                 <input class="form-control" type="text" placeholder="Título Evento" asp-for="@Model.NovoEvento.Titulo"/>
                 <span class="text-danger" asp-validation-for="@Model.NovoEvento.Titulo"></span>
@@ -35,7 +37,7 @@
             </div>
 
             <div class="mb-3">
-                <input class="form-control" type="datetime-local" placeholder="Data" asp-for="@Model.NovoEvento.Data" value="@DateTime.Today"/>
+                <input class="form-control" type="datetime-local" placeholder="Data" asp-for="@Model.NovoEvento.Data" value=""/>
                 <span class="text-danger" asp-validation-for="@Model.NovoEvento.Data"></span>
             </div>
 

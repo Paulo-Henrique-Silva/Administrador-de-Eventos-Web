@@ -1,11 +1,13 @@
 using EventzManager.Modelos;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace EventzManager.Pages.Principal.Acoes
 {
     public class AdicionarModel : PageModel
     {
+        [BindProperty]
         public Evento NovoEvento { get; set; } = new Evento();
 
         private readonly BancoDeDados Contexto;
@@ -23,7 +25,14 @@ namespace EventzManager.Pages.Principal.Acoes
             {
                 TempData["primeiro_nome"] = usuario.Nome[..usuario.Nome.IndexOf(' ')]; //obtém o primeiro nome do usuário
                 TempData["id"] = id;
+
                 NovoEvento.Usuario = usuario;
+                //NovoEvento.Titulo = "LSUIS";
+                //NovoEvento.Descricao = "sadsad";
+                //NovoEvento.Data = DateTime.Today;
+
+                //Contexto.Eventos.Add(NovoEvento);
+                //Contexto.SaveChanges();
             }
         }
 
@@ -36,7 +45,8 @@ namespace EventzManager.Pages.Principal.Acoes
                     Contexto.Eventos.Add(NovoEvento);
                     Contexto.SaveChanges();
 
-                    return RedirectToPage("/Principal/ListaEventos", new { Id = 34 });
+                    var id = TempData["id"];
+                    return RedirectToPage("/Principal/ListaEventos", new { id });
                 }
                 catch (Exception ex)
                 {

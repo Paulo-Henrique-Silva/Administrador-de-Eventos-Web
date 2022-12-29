@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EventzManager.Migrations
 {
     [DbContext(typeof(BancoDeDados))]
-    [Migration("20221228151827_Correcao")]
-    partial class Correcao
+    [Migration("20221229140001_CorrigindoFk")]
+    partial class CorrigindoFk
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -49,12 +49,13 @@ namespace EventzManager.Migrations
                         .HasColumnType("nvarchar(80)")
                         .HasColumnName("titulo");
 
-                    b.Property<long>("usuario_id")
-                        .HasColumnType("bigint");
+                    b.Property<long>("UsuarioId")
+                        .HasColumnType("bigint")
+                        .HasColumnName("usuario_id");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("usuario_id");
+                    b.HasIndex("UsuarioId");
 
                     b.ToTable("tb_eventos");
                 });
@@ -108,7 +109,7 @@ namespace EventzManager.Migrations
                 {
                     b.HasOne("EventzManager.Modelos.Usuario", "Usuario")
                         .WithMany()
-                        .HasForeignKey("usuario_id")
+                        .HasForeignKey("UsuarioId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

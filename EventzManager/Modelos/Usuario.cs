@@ -44,5 +44,7 @@ namespace EventzManager.Modelos
         [DisplayName("Email foi verificado?")]
         [Required]
         public bool EmailFoiVerificado { get; set; } = false;
+
+        public virtual List<Evento>? Eventos { get; set; }
     }
 }

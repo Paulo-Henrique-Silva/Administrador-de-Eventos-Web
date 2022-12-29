@@ -15,22 +15,24 @@ namespace EventzManager.Modelos
         [Column("usuario_id")]
         [ForeignKey("usuario_id")] //relação de 1:M
         [Required]
-        public Usuario Usuario { get; set; } = new Usuario();
+        public uint UsuarioId { get; set; }
+
+        public virtual Usuario Usuario { get; set; } = new Usuario();
 
         [Column("titulo")]
         [DisplayName("Título")]
-        [Required(ErrorMessage = "O campo de 'título' é requerido.")]
-        [MaxLength(80, ErrorMessage = "O campo de 'título' só pode conter no máximo 80 caracteres.")]
+        [Required(ErrorMessage = "O campo de '{0}' é requerido.")]
+        [MaxLength(80, ErrorMessage = "O campo de '{0}' só pode conter no máximo 80 caracteres.")]
         public string Titulo { get; set; } = string.Empty;
 
         [Column("descricao")]
         [DisplayName("Descrição")]
-        [MaxLength(200, ErrorMessage = "O campo de 'descrição' só pode conter no máximo 200 caracteres.")]
+        [MaxLength(200, ErrorMessage = "O campo de '{0}' só pode conter no máximo 200 caracteres.")]
         public string? Descricao { get; set; }
 
         [Column("data")]
         [DisplayName("Data")]
-        [Required(ErrorMessage = "O campo de 'data' é requerido.")]
+        [Required(ErrorMessage = "O campo de '{0}' é requerido.")]
         public DateTime Data { get; set; }
     }
 }
