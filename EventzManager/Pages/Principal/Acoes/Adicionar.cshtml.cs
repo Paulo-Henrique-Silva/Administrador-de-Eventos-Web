@@ -26,25 +26,32 @@ namespace EventzManager.Pages.Principal.Acoes
             {
                 TempData["primeiro_nome"] = usuario.Nome[..usuario.Nome.IndexOf(' ')]; //obtém o primeiro nome do usuário
                 TempData["id"] = id.ToString();
-                TempData.Keep("id");
+
+                Response.Cookies.Append("id", id.ToString());
             }
         }
 
         public IActionResult OnPostAdicionar()
         {
-            uint id = 0u;
+            string? cookieId = Request.Cookies["id"];
 
-            if (TempData.ContainsKey("id"))
-                id = uint.Parse(TempData["id"].ToString());
+            if (cookieId == null) //o id do usuário não foi armazenado e, portanto, não poderá salvar o evento.
+                return RedirectToPage("/Index");
 
-            if (ModelState.IsValid)
+            uint id;
+            Usuario? usuario;
+
+            id = uint.Parse(cookieId.ToString());
+            usuario = Contexto.Usuarios.Find(id);
+
+            if (ModelState.IsValid && usuario != null)
             {
                 Evento evento = new()
                 {
                     Titulo = NovoEvento.Titulo,
                     Descricao = NovoEvento.Descricao,
                     Data = NovoEvento.Data,
-                    Usuario = Contexto.Usuarios.Find(id),
+                    Usuario = usuario,
                 };
 
                 try
@@ -59,9 +66,11 @@ namespace EventzManager.Pages.Principal.Acoes
                     TempData["erro"] = ex.Message;
                 }
             }
+            else if (usuario == null)
+                return RedirectToPage("/Index");
 
             TempData["erro"] += "Não foi possível adicionar. Tente novamente.";
-            return id != 0u ? RedirectToPage("/Principal/Acoes/Adicionar", new { id }) : RedirectToPage("/Index");
+            return RedirectToPage("/Principal/Acoes/Adicionar", new { id });
         }
     }
 }
