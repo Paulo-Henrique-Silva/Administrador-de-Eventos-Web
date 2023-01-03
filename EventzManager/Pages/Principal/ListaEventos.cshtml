@@ -41,7 +41,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" onclick="return confirm('Tem certeza que deseja excluir o evento?')" asp-page-handler="Deletar" asp-route-id="@evento.Id">
                                     <img class="me-2 img-fluid" src="/imagens/excluir.svg" alt="EXCLUIR" aria-label="EXCLUIR" /> Excluir
                                 </a>
                             </li>

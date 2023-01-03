@@ -25,6 +25,8 @@ namespace EventzManager.Pages.Principal
             TempData["primeiro_nome"] = usuario.Nome[..usuario.Nome.IndexOf(' ')]; //obtém o primeiro nome do usuário
             TempData["id"] = id;
 
+            Response.Cookies.Append("id-usuario", id.ToString());
+
             //obtém lista de eventos
             List<Evento> eventos = Contexto.Eventos.Where(e => e.UsuarioId == id).OrderBy(x => x.Data).ToList();
             Eventos = eventos.ToList();
@@ -38,6 +40,29 @@ namespace EventzManager.Pages.Principal
                     Eventos.Add(evento);
                 }
             }
+        }
+
+        public IActionResult OnGetDeletar(uint id)
+        {
+            var cookieIdUsuario = Request.Cookies["id-usuario"];
+            Evento? evento = Contexto.Eventos.Find(id);
+
+            if (cookieIdUsuario == null)
+                return RedirectToPage("/Login/Entrar");
+            else if (evento == null)
+                return RedirectToPage("/Principal/ListaEventos", new { Id = uint.Parse(cookieIdUsuario.ToString()) });
+
+            try
+            {
+                Contexto.Eventos.Remove(evento);
+                Contexto.SaveChanges();
+            }
+            catch
+            {
+                return RedirectToPage("/Principal/ListaEventos", new { Id = uint.Parse(cookieIdUsuario.ToString()) });
+            }
+
+            return RedirectToPage("/Principal/ListaEventos", new { Id = uint.Parse(cookieIdUsuario.ToString()) });
         }
     }
 }
