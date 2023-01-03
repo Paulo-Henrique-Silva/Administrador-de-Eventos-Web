@@ -10,35 +10,45 @@
     <hr />
 
     <!--Eventos do usuário-->
-    <div class="card mb-2">
-        <div class="card-body row align-items-center">
-            <div class="col-sm-12 col-md-7 my-2 text-start">
-                <p class="card-title fw-bold">TÍTULO 1</p>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio eu feugiat pretium nibh ipsum consequat nisl vel. Sed risus pretium qua</p>
-            </div>
-            <div class="col-6 col-md-3 my-2 text-center">
-                <span class="text-nowrap">@DateTime.Today.ToShortDateString()</span>
-                <span class="text-nowrap">@DateTime.Now.ToShortTimeString()</span>
-            </div>
-            <div class="col-6 col-md-1 my-2 text-center">
-                <div class="dropend">
-                    <button class="btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img class="me-2" src="/imagens/mais_acoes.svg" alt="MAIS ACOES" aria-label="MAIS ACOES" />
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a class="dropdown-item" asp-area="" asp-page="/Principal/Acoes/Editar">
-                                <img class="me-2 img-fluid" src="/imagens/editar.svg" alt="EDITAR" aria-label="EDITAR" /> Editar
-                            </a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="#">
-                                <img class="me-2 img-fluid" src="/imagens/excluir.svg" alt="EXCLUIR" aria-label="EXCLUIR" /> Excluir
-                            </a>
-                        </li>
-                    </ul>
+    @foreach (var evento in Model.Eventos)
+    {
+        <div class="card mb-3">
+            <div class="card-body row align-items-center">                
+
+                <div class="col-sm-12 col-md-7 my-2 text-start">
+                    <p class="card-title fw-bold">@evento.Titulo</p>
+                    <p class="card-text">@evento.Descricao</p>
+                </div>
+                <div class="col-6 col-md-3 my-2 text-center">
+                    <span class="text-nowrap">@evento.Data.ToShortDateString()</span>
+                    <span class="text-nowrap">@evento.Data.ToShortTimeString()</span>
+                </div>
+                <div class="col-6 col-md-1 my-2 text-center">
+
+                    @if (evento.Data < DateTime.Now)
+                    {
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">Expirado</span>
+                    }
+
+                    <div class="dropend">
+                        <button class="btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img class="me-2" src="/imagens/mais_acoes.svg" alt="MAIS ACOES" aria-label="MAIS ACOES" />
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" asp-area="" asp-page="/Principal/Acoes/Editar">
+                                    <img class="me-2 img-fluid" src="/imagens/editar.svg" alt="EDITAR" aria-label="EDITAR" /> Editar
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <img class="me-2 img-fluid" src="/imagens/excluir.svg" alt="EXCLUIR" aria-label="EXCLUIR" /> Excluir
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    }
 </div>
