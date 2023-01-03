@@ -15,8 +15,8 @@
             </div>
 
             <div class="mb-3">
-                <input class="form-control" type="email" placeholder="Email" />
-                <span class="text-danger"></span>
+                <input class="form-control" type="email" placeholder="Email" asp-for="@Model.Email"/>
+                <span class="text-danger" asp-validation-for="@Model.Email"></span>
             </div>
 
             <button class="btn btn-primary w-100 mb-4" type="submit">Buscar</button>
@@ -29,5 +29,5 @@
 </div>
 
 @section Scripts{
-        <partial name="_ValidationScriptsPartial" />
+    <partial name="_ValidationScriptsPartial" />
 }
