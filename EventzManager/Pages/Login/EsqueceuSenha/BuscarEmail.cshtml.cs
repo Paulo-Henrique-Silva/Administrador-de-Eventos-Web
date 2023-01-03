@@ -42,7 +42,7 @@ namespace EventzManager.Pages.Login.EsqueceuSenha
                 return Page();
             }
 
-            return RedirectToPage("/Login/EsqueceuSenha/ConfirmarCodigo", new { Id = Contexto.Usuarios.Where(x => x.Email == Email).First().Id });
+            return RedirectToPage("/Login/EsqueceuSenha/ConfirmarCodigo", new { Contexto.Usuarios.Where(x => x.Email == Email).First().Id });
         }
     }
 }
