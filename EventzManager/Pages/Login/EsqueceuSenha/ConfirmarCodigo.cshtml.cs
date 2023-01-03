@@ -35,7 +35,6 @@ namespace EventzManager.Pages.Login.EsqueceuSenha
 
                 try
                 {
-                    usuario.EmailFoiVerificado = false;
                     usuario.CodigoSeguranca = $"{new Random().Next(100):D2}{new Random().Next(100):D2}{new Random().Next(100):D2}";
                     Contexto.SaveChanges();
 

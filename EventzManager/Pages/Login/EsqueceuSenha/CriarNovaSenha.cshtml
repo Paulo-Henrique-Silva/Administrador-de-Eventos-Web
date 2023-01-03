@@ -7,7 +7,7 @@
 
 <div class="card m-auto">
     <div class="card-body">
-        <form method="post">
+        <form method="post" asp-page-handler="Salvar">
             <div class="text-center mb-3">
                 <img class="mb-1 img-fluid" src="/imagens/logo_azul.svg" alt="Eventz Manager" arial-label="Eventz Manager" />
                 <h1 class="card-title">Nova senha</h1>
@@ -15,13 +15,13 @@
             </div>
 
             <div class="mb-3">
-                <input class="form-control" type="password" placeholder="Nova senha" />
-                <span class="text-danger"></span>
+                <input class="form-control" type="password" placeholder="Nova senha" asp-for="@Model.NovaSenha"/>
+                <span class="text-danger" asp-validation-for="@Model.NovaSenha"></span>
             </div>
             
             <div class="mb-3">
-                <input class="form-control" type="password" placeholder="Confirmar nova senha" />
-                <span class="text-danger"></span>
+                <input class="form-control" type="password" placeholder="Confirmar nova senha" asp-for="@Model.ConfirmacaoSenha"/>
+                <span class="text-danger" asp-validation-for="@Model.ConfirmacaoSenha"></span>
             </div>
 
             <button class="btn btn-primary w-100" type="submit">Salvar</button>
