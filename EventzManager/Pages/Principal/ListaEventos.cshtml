@@ -6,7 +6,7 @@
 }
 
 <div class="col-12 col-sm-10 col-md-8 m-auto text-center">
-    <a class="btn btn-secondary" asp-area="" asp-page="/Principal/Acoes/Adicionar" asp-route-id="@TempData["id"]">+ Adicionar</a>
+    <a class="btn btn-secondary" asp-area="" asp-page="/Principal/Acoes/Adicionar" asp-route-id="@TempData["id_usuario"]">+ Adicionar</a>
     <hr />
 
     <!--Eventos do usuário-->
@@ -36,7 +36,7 @@
                         </button>
                         <ul class="dropdown-menu">
                             <li>
-                                <a class="dropdown-item" asp-area="" asp-page="/Principal/Acoes/Editar">
+                                <a class="dropdown-item" asp-area="" asp-page="/Principal/Acoes/Editar" asp-route-idusuario="@TempData["id_usuario"]" asp-route-idevento="@evento.Id">
                                     <img class="me-2 img-fluid" src="/imagens/editar.svg" alt="EDITAR" aria-label="EDITAR" /> Editar
                                 </a>
                             </li>

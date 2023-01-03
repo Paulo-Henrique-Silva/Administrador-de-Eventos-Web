@@ -9,6 +9,13 @@
     <a class="btn btn-secondary" asp-area="" asp-page="/Principal/ListaEventos">&ang; Voltar</a>
 </div>
 
+@if (TempData["erro"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["erro"]
+    </div>
+}
+
 <div class="acoes-form card m-auto">
     <div class="card-body">
         <form method="post" asp-page-handler="Editar">
@@ -17,18 +24,18 @@
             </div>
 
             <div class="mb-3">
-                <input class="form-control" type="text" placeholder="Título Evento" />
-                <span class="text-danger"></span>
+                <input class="form-control" type="text" placeholder="Título Evento" asp-for="@Model.Evento.Titulo" />
+                <span class="text-danger" asp-validation-for="@Model.Evento.Titulo"></span>
             </div>
 
             <div class="mb-3">
-                <textarea class="form-control" type="text" placeholder="Descrição" rows="3"></textarea>
-                <span class="text-danger"></span>
+                <textarea class="form-control" type="text" placeholder="Descrição" rows="3" asp-for="@Model.Evento.Descricao"></textarea>
+                <span class="text-danger" asp-validation-for="@Model.Evento.Descricao"></span>
             </div>
 
             <div class="mb-3">
-                <input class="form-control" type="datetime-local" placeholder="Data" />
-                <span class="text-danger"></span>
+                <input class="form-control" type="datetime-local" placeholder="Data" asp-for="@Model.Evento.Data" />
+                <span class="text-danger" asp-validation-for="@Model.Evento.Data"></span>
             </div>
 
             <button class="btn btn-primary w-100" type="submit">Salvar</button>
@@ -37,5 +44,5 @@
 </div>
 
 @section Scripts{
-        <partial name="_ValidationScriptsPartial" />
+    <partial name="_ValidationScriptsPartial" />
 }

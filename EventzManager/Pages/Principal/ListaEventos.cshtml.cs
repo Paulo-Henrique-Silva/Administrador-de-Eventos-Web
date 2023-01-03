@@ -22,10 +22,11 @@ namespace EventzManager.Pages.Principal
             if (usuario == null) //checa para caso a conta exista
                 return;
 
+            //dados a serem usados no header da página.
             TempData["primeiro_nome"] = usuario.Nome[..usuario.Nome.IndexOf(' ')]; //obtém o primeiro nome do usuário
-            TempData["id"] = id;
+            TempData["id_usuario"] = id;
 
-            Response.Cookies.Append("id-usuario", id.ToString());
+            Response.Cookies.Append("id_usuario", id.ToString());
 
             //obtém lista de eventos
             List<Evento> eventos = Contexto.Eventos.Where(e => e.UsuarioId == id).OrderBy(x => x.Data).ToList();
@@ -44,13 +45,13 @@ namespace EventzManager.Pages.Principal
 
         public IActionResult OnGetDeletar(uint id)
         {
-            var cookieIdUsuario = Request.Cookies["id-usuario"];
+            var cookieIdUsuario = Request.Cookies["id_usuario"];
             Evento? evento = Contexto.Eventos.Find(id);
 
             if (cookieIdUsuario == null)
                 return RedirectToPage("/Login/Entrar");
             else if (evento == null)
-                return RedirectToPage("/Principal/ListaEventos", new { Id = uint.Parse(cookieIdUsuario.ToString()) });
+                return RedirectToPage("/Principal/ListaEventos", new { Id = cookieIdUsuario });
 
             try
             {
@@ -59,10 +60,10 @@ namespace EventzManager.Pages.Principal
             }
             catch
             {
-                return RedirectToPage("/Principal/ListaEventos", new { Id = uint.Parse(cookieIdUsuario.ToString()) });
+                return RedirectToPage("/Principal/ListaEventos", new { Id = cookieIdUsuario });
             }
 
-            return RedirectToPage("/Principal/ListaEventos", new { Id = uint.Parse(cookieIdUsuario.ToString()) });
+            return RedirectToPage("/Principal/ListaEventos", new { Id = cookieIdUsuario });
         }
     }
 }

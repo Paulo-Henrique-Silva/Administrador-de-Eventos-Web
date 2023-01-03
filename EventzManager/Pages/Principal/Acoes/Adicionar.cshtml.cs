@@ -25,15 +25,15 @@ namespace EventzManager.Pages.Principal.Acoes
             if (usuario != null) //checa para caso a conta exista
             {
                 TempData["primeiro_nome"] = usuario.Nome[..usuario.Nome.IndexOf(' ')]; //obtém o primeiro nome do usuário
-                TempData["id"] = id.ToString();
+                TempData["id_usuario"] = id.ToString();
 
-                Response.Cookies.Append("id", id.ToString());
+                Response.Cookies.Append("id_usuario", id.ToString());
             }
         }
 
         public IActionResult OnPostAdicionar()
         {
-            string? cookieId = Request.Cookies["id"];
+            string? cookieId = Request.Cookies["id_usuario"];
 
             if (cookieId == null) //o id do usuário não foi armazenado e, portanto, não poderá salvar o evento.
                 return RedirectToPage("/Index");
