@@ -33,7 +33,6 @@ namespace EventzManager.Pages.Principal.Conta
 
             if (usuario != null) //checa para caso a conta exista
             {
-                TempData["primeiro_nome"] = usuario.Nome[..usuario.Nome.IndexOf(' ')]; //obtém o primeiro nome do usuário
                 TempData["id_usuario"] = id.ToString();
 
                 NomeView = usuario.Nome;
@@ -65,7 +64,7 @@ namespace EventzManager.Pages.Principal.Conta
             {
                 try
                 {
-                    usuarioNoBd.Nome = NomeView;
+                    usuarioNoBd.Nome = NomeView.ToUpper();
 
                     if (usuarioNoBd.Email != EmailView)
                     {

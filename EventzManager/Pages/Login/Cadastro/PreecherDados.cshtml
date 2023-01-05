@@ -21,22 +21,23 @@
             </div>
 
             <div class="mb-3">
-                <input class="form-control" type="text" placeholder="Nome" style="text-transform: uppercase;" asp-for="@Model.NovoUsuario.Nome" />
-                <span class="text-danger" asp-validation-for="@Model.NovoUsuario.Nome"></span>
+                <input class="form-control" type="text" placeholder="Nome" style="text-transform: uppercase;" asp-for="@Model.NovoUsuarioView.Nome" />
+                <span class="text-danger" asp-validation-for="@Model.NovoUsuarioView.Nome"></span>
             </div>
 
             <div class="mb-3">
-                <input class="form-control" type="email" placeholder="Email" asp-for="@Model.NovoUsuario.Email" />
-                <span class="text-danger" asp-validation-for="@Model.NovoUsuario.Email"></span>
+                <input class="form-control" type="email" placeholder="Email" asp-for="@Model.NovoUsuarioView.Email" />
+                <span class="text-danger" asp-validation-for="@Model.NovoUsuarioView.Email"></span>
             </div>
 
             <div class="mb-3">
-                <input class="form-control" type="password" placeholder="Senha" asp-for="@Model.NovoUsuario.Senha" />
-                <span class="text-danger" asp-validation-for="@Model.NovoUsuario.Senha"></span>
+                <input class="form-control" type="password" placeholder="Senha" asp-for="@Model.NovoUsuarioView.Senha" />
+                <span class="text-danger" asp-validation-for="@Model.NovoUsuarioView.Senha"></span>
             </div>
             
             <div class="mb-3">
-                <input class="form-control" type="password" placeholder="Confirme senha" name="ConfirmacaoSenha" required />
+                <input class="form-control" type="password" placeholder="Confirme senha" asp-for="@Model.ConfirmacaoSenha" />
+                <span class="text-danger" asp-validation-for="@Model.ConfirmacaoSenha"></span>
             </div>
 
             <button class="btn btn-primary w-100 mb-4" type="submit">Cadastrar</button>

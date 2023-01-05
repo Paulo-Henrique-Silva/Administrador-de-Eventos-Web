@@ -25,7 +25,6 @@ namespace EventzManager.Pages.Principal.Acoes
             if (usuario != null && evento != null) //checa para caso a conta e o evento existam
             {
                 //obtem temp data as serem usadas no header
-                TempData["primeiro_nome"] = usuario.Nome[..usuario.Nome.IndexOf(' ')];
                 TempData["id_usuario"] = idUsuario.ToString();
 
                 Evento.Titulo = evento.Titulo;

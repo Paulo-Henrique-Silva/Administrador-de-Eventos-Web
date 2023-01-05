@@ -23,7 +23,6 @@ namespace EventzManager.Pages.Principal
                 return;
 
             //dados a serem usados no header da página.
-            TempData["primeiro_nome"] = usuario.Nome[..usuario.Nome.IndexOf(' ')]; //obtém o primeiro nome do usuário
             TempData["id_usuario"] = id;
 
             Response.Cookies.Append("id_usuario", id.ToString());

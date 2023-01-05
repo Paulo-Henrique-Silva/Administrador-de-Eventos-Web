@@ -48,7 +48,6 @@ namespace EventzManager.Pages.Login.EsqueceuSenha
 
             if (ModelState.IsValid)
             {
-
                 if (cookieId == null)
                     return RedirectToPage("/Index");
 
@@ -65,13 +64,13 @@ namespace EventzManager.Pages.Login.EsqueceuSenha
                 }
                 catch
                 {
-                    return Page();
+                    return RedirectToPage("", new { Id = cookieId });
                 }
 
                 return RedirectToPage("/Principal/ListaEventos", new { Id = cookieId });
             }
 
-            return Page();
+            return RedirectToPage("", new { Id = cookieId });
         }
     }
 }

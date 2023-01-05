@@ -15,7 +15,7 @@ namespace EventzManager.Pages.Login.EsqueceuSenha
         [Required(ErrorMessage = "O campo de '{0}' é requerido.")]
         [DisplayName("Código de Segurança")]
         [MaxLength(6, ErrorMessage = "O campo de '{0}' só pode conter no máximo 6 caracteres.")]
-        public string CodigoSeguranca { get; set; } = string.Empty;
+        public string CodigoSegurancaView { get; set; } = string.Empty;
 
         private readonly BancoDeDados Contexto;
 
@@ -83,15 +83,15 @@ namespace EventzManager.Pages.Login.EsqueceuSenha
             if (cookieId == null) //o id do usuário não foi armazenado e, portanto, não poderá salvar o evento.
                 return RedirectToPage("/Index");
 
-            Usuario? usuario = Contexto.Usuarios.Find(uint.Parse(cookieId));
+            Usuario? usuarioNoBd = Contexto.Usuarios.Find(uint.Parse(cookieId));
 
-            if (usuario == null) //se a conta não existe.
+            if (usuarioNoBd == null) //se a conta não existe.
                 return RedirectToPage("/Index");
 
-            if (usuario.CodigoSeguranca != CodigoSeguranca || !ModelState.IsValid)
-                return RedirectToPage("", "CodigoErrado", new { usuario.Id });
+            if (usuarioNoBd.CodigoSeguranca != CodigoSegurancaView || !ModelState.IsValid)
+                return RedirectToPage("", "CodigoErrado", new { usuarioNoBd.Id });
 
-            return RedirectToPage("/Login/EsqueceuSenha/CriarNovaSenha", new { usuario.Id });
+            return RedirectToPage("/Login/EsqueceuSenha/CriarNovaSenha", new { usuarioNoBd.Id });
         }
     }
 }

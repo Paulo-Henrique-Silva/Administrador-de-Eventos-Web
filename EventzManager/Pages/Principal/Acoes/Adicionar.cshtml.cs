@@ -24,7 +24,6 @@ namespace EventzManager.Pages.Principal.Acoes
 
             if (usuario != null) //checa para caso a conta exista
             {
-                TempData["primeiro_nome"] = usuario.Nome[..usuario.Nome.IndexOf(' ')]; //obtém o primeiro nome do usuário
                 TempData["id_usuario"] = id.ToString();
 
                 Response.Cookies.Append("id_usuario", id.ToString());

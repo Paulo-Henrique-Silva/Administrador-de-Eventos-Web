@@ -1,15 +1,25 @@
 using EventzManager.Modelos;
+using EventzManager.ViewsModelos;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.SignalR.Protocol;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
 
 namespace EventzManager.Pages.Login.Cadastro
 {
     public class PreecherDadosModel : PageModel
     {
         [BindProperty]
-        public Usuario NovoUsuario { get; set; } = new Usuario();
+        public UsuarioView NovoUsuarioView { get; set; } = new();
+
+        [BindProperty]
+        [DisplayName("Confirmar senha")]
+        [Required(ErrorMessage = "O campo de '{0}' é requerido.")]
+        [MaxLength(60, ErrorMessage = "O campo de '{0}' só pode conter no máximo 60 caracteres.")]
+        public string ConfirmacaoSenha { get; set; } = string.Empty;
 
         private readonly BancoDeDados Contexto;
 
@@ -23,20 +33,27 @@ namespace EventzManager.Pages.Login.Cadastro
             
         }
 
-        public IActionResult OnPostCadastrar(string confirmacaoSenha)
+        public IActionResult OnPostCadastrar()
         {
-            if (Contexto.Usuarios.Any(x => x.Email == NovoUsuario.Email))
-                ModelState.AddModelError("NovoUsuario.Email", "Este email já está cadastrado.");
-            else if (confirmacaoSenha != NovoUsuario.Senha)
-                ModelState.AddModelError("NovoUsuario.Senha", "Os campos de senha e confirmar senha precisam ser iguais.");
+            if (Contexto.Usuarios.Any(x => x.Email == NovoUsuarioView.Email))
+                ModelState.AddModelError("NovoUsuarioView.Email", "Este email já está cadastrado.");
+            else if (ConfirmacaoSenha != NovoUsuarioView.Senha)
+                ModelState.AddModelError("NovoUsuarioView.Senha", "Os campos de senha e confirmar senha precisam ser iguais.");
 
             if (ModelState.IsValid)
             {
                 try
                 {
-                    Contexto.Usuarios.Add(NovoUsuario);
+                    Usuario novoUsuario = new()
+                    {
+                        Nome = NovoUsuarioView.Nome.ToUpper(),
+                        Email = NovoUsuarioView.Email,
+                        Senha = NovoUsuarioView.Senha,
+                    };
+
+                    Contexto.Usuarios.Add(novoUsuario);
                     Contexto.SaveChanges();
-                    return RedirectToPage("/Login/Cadastro/ConfirmarEmail", new { NovoUsuario.Id });
+                    return RedirectToPage("/Login/Cadastro/ConfirmarEmail", new { novoUsuario.Id });
                 }
                 catch (Exception ex)
                 {
