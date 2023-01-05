@@ -9,25 +9,14 @@
     <div class="col-6">
         <a class="btn btn-secondary" asp-area="" asp-page="/Principal/ListaEventos" asp-route-id="@TempData["id_usuario"]">&ang; Voltar</a>
     </div>
-
-    <div class="dropend col-6 text-end">
-        <button class="btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <img class="me-2" src="/imagens/mais_acoes.svg" alt="MAIS ACOES" aria-label="MAIS ACOES" /> Mais ações
-        </button>
-        <ul class="dropdown-menu">
-            <li>
-                <a class="dropdown-item" href="#">
-                    <img class="me-2 img-fluid center-block" src="/imagens/sair.svg" alt="SAIR" aria-label="SAIR" /> Sair
-                </a>
-            </li>
-            <li>
-                <a class="dropdown-item" href="#">
-                    <img class="me-2 img-fluid center-block" src="/imagens/excluir.svg" alt="EXCLUIR" aria-label="EXCLUIR" /> Excluir conta
-                </a>
-            </li>
-        </ul>
-    </div>
 </div>
+
+@if (TempData["erro"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["erro"]
+    </div>
+}
 
 <div class="acoes-form card m-auto">
     <div class="card-body">
@@ -37,28 +26,23 @@
             </div>
 
             <div class="mb-3">
-                <input class="form-control" type="password" placeholder="Senha atual" />
-                <span class="text-danger"></span>
+                <input class="form-control" type="password" placeholder="Senha atual" asp-for="@Model.SenhaAtualView"/>
+                <span class="text-danger" asp-validation-for="@Model.SenhaAtualView"></span>
             </div>
 
             <div class="mb-3">
-                <input class="form-control" type="password" placeholder="Nova senha"/>
-                <span class="text-danger"></span>
+                <input class="form-control" type="password" placeholder="Nova senha" asp-for="@Model.NovaSenhaView" />
+                <span class="text-danger" asp-validation-for="@Model.NovaSenhaView"></span>
             </div>
 
             <div class="mb-3">
-                <input class="form-control" type="password" placeholder="Confirme nova senha" />
+                <input class="form-control" type="password" placeholder="Confirme nova senha" asp-for="@Model.ConfirmacaoNovaSenhaView" />
+                <span class="text-danger" asp-validation-for="@Model.ConfirmacaoNovaSenhaView"></span>
             </div>
 
-            <div class="row">
-                <div class="col-12 col-md-6 mb-2">
-                    <button class="btn btn-primary w-100" type="submit">Salvar</button>
-                </div>
-
-                <div class="col-12 col-md-6">
-                    <button class="btn btn-secondary w-100" type="reset">Cancelar</button>
-                </div>
-            </div>
+             <div class="mb-2">
+                <button class="btn btn-primary w-100" type="submit">Salvar</button>
+             </div>
         </form>
     </div>
 </div>
