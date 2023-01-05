@@ -6,7 +6,7 @@
 }
 
 <div class="mb-3">
-    <a class="btn btn-secondary" asp-area="" asp-page="/Principal/ListaEventos">&ang; Voltar</a>
+    <a class="btn btn-secondary" asp-area="" asp-page="/Principal/ListaEventos" asp-route-id="@TempData["id_usuario"]">&ang; Voltar</a>
 </div>
 
 @if (TempData["erro"] != null)
