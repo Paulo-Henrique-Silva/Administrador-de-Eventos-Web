@@ -1,0 +1,40 @@
+﻿@page
+@model EventzManager.Pages.Principal.Conta.ExcluirContaModel
+@{
+    Layout = "/Pages/Shared/_LayoutPrincipal.cshtml";
+    ViewData["Title"] = "Excluir";
+}
+
+<div class="row mb-3">
+    <div class="col-6">
+        <a class="btn btn-secondary" asp-area="" asp-page="/Principal/ListaEventos" asp-route-id="@TempData["id_usuario"]">&ang; Voltar</a>
+    </div>
+</div>
+
+@if (TempData["erro"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["erro"]
+    </div>
+}
+
+<div class="acoes-form card m-auto">
+    <div class="card-body">
+        <form method="post" asp-page-handler="Excluir">
+            <div class="text-center">
+                <p class="card-title fw-bold">Insira a senha da conta para completar a exclusão</p>
+            </div>
+
+            <div class="mb-3">
+                <input class="form-control" type="password" placeholder="Senha" asp-for="@Model.SenhaView" />
+                <span class="text-danger" asp-validation-for="@Model.SenhaView"></span>
+            </div>
+
+            <button class="btn btn-primary w-100" type="submit" onclick="return confirm('Tem certeza que deseja excluir a sua conta? Esta ação não poderá ser desfeita.')">Salvar</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
