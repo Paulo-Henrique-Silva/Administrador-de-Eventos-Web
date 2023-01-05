@@ -16,7 +16,7 @@
         </button>
         <ul class="dropdown-menu">
             <li>
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" onclick="return confirm('Tem certeza que deseja sair da sua conta?')" asp-area="" asp-page="/Login/Entrar">
                     <img class="me-2 img-fluid center-block" src="/imagens/sair.svg" alt="SAIR" aria-label="SAIR" /> Sair
                 </a>
             </li>
@@ -29,6 +29,13 @@
     </div>
 </div>
 
+@if (TempData["erro"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["erro"]
+    </div>
+}
+
 <div class="acoes-form card m-auto">
     <div class="card-body">
         <form method="post" asp-page-handler="Editar">
@@ -37,18 +44,18 @@
             </div>
 
             <div class="mb-3">
-                <input class="form-control" type="text" placeholder="Nome" />
-                <span class="text-danger"></span>
+                <input class="form-control" type="text" placeholder="Nome" style="text-transform: uppercase;" asp-for="@Model.NomeView"/>
+                <span class="text-danger" asp-validation-for="@Model.NomeView"></span>
             </div>
 
             <div class="mb-3">
-                <input class="form-control" type="email" placeholder="Email"/>
-                <span class="text-danger"></span>
+                <input class="form-control" type="email" placeholder="Email" asp-for="@Model.EmailView" />
+                <span class="text-danger" asp-validation-for="@Model.EmailView"></span>
             </div>
 
             <div class="input-group mb-3">
-                <input class="form-control" type="password" disabled placeholder="Senha" />
-                <a class="input-group-text link-primary" asp-area="" asp-page="/Principal/Conta/AlterarSenha">Alterar</a>
+                <input class="form-control" type="password" readonly placeholder="Senha" />
+                <a class="input-group-text link-primary" asp-area="" asp-page="/Principal/Conta/AlterarSenha" asp-route-id="@TempData["id_usuario"]">Alterar</a>
             </div>
 
             <button class="btn btn-primary w-100" type="submit">Salvar</button>
