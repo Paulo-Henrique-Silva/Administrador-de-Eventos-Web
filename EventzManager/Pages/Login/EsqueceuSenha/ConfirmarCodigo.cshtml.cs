@@ -35,6 +35,7 @@ namespace EventzManager.Pages.Login.EsqueceuSenha
 
                 try
                 {
+                    usuario.EmailFoiVerificado = false;
                     usuario.CodigoSeguranca = $"{new Random().Next(100):D2}{new Random().Next(100):D2}{new Random().Next(100):D2}";
                     Contexto.SaveChanges();
 
@@ -87,18 +88,8 @@ namespace EventzManager.Pages.Login.EsqueceuSenha
             if (usuario == null) //se a conta não existe.
                 return RedirectToPage("/Index");
 
-            if (usuario.CodigoSeguranca != CodigoSeguranca)
+            if (usuario.CodigoSeguranca != CodigoSeguranca || !ModelState.IsValid)
                 return RedirectToPage("", "CodigoErrado", new { usuario.Id });
-
-            try
-            {
-                usuario.EmailFoiVerificado = true;
-                Contexto.SaveChanges();
-            }
-            catch
-            {
-                return RedirectToPage("", "CodigoErrado", new { usuario.Id });
-            }
 
             return RedirectToPage("/Login/EsqueceuSenha/CriarNovaSenha", new { usuario.Id });
         }
