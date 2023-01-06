@@ -5,6 +5,13 @@
     ViewData["Title"] = "Confirmar Código";
 }
 
+@if (TempData["erro"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["erro"]
+    </div>
+}
+
 <div class="card m-auto">
     <div class="card-body">
         <form method="post" asp-page-handler="Confirmar">

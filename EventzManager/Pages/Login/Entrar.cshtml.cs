@@ -24,14 +24,14 @@ namespace EventzManager.Pages.Login
         public IActionResult OnPostEntrar()
         {
             if (!Contexto.Usuarios.Any(x => x.Email == Usuario.Email))
-                ModelState.AddModelError("Usuario.Email", "Não existe uma conta cadastrada com este email.");
+                ModelState.AddModelError($"{nameof(Usuario)}.{nameof(Usuario.Email)}", "Não existe uma conta cadastrada com este email.");
             else
             {
                 Usuario usuarioQuery = Contexto.Usuarios.Where(x => x.Email == Usuario.Email).First();
 
                 if (usuarioQuery.Senha != Usuario.Senha)
-                    ModelState.AddModelError("Usuario.Senha", "Senha incorreta.");
-                else if (!usuarioQuery.EmailFoiVerificado)
+                    ModelState.AddModelError($"{nameof(Usuario)}.{nameof(Usuario.Senha)}", "Senha incorreta.");
+                else if (!usuarioQuery.EmailFoiVerificado) //a conta só é liberada após a confirmação do email.
                     return RedirectToPage("/Login/Cadastro/ConfirmarEmail", new { usuarioQuery.Id });
                 else
                     return RedirectToPage("/Principal/ListaEventos", new { usuarioQuery.Id });

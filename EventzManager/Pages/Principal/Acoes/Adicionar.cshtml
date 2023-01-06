@@ -17,14 +17,23 @@
 }
 
 <div class="acoes-form card m-auto">
+    @*<div class="card-header text-center">
+        
+    </div>*@
+
     <div class="card-body">
         <form method="post" asp-page-handler="Adicionar">
-            <div class="text-center">
-                <p class="card-title fw-bold">Preencha as informações</p>
+            <div class="text-center mb-3">
+                <p class="card-title fw-bold">Adicionar Evento</p>
+                <span class="card-subtitle">Preencha as informações</span>
             </div>
 
             <div class="mb-3">
-                <input class="form-control" type="text" placeholder="Título Evento" asp-for="@Model.NovoEvento.Titulo" />
+                <div class="card border-0">
+                    <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle"></span>
+                    <input class="form-control" type="text" placeholder="Título Evento" asp-for="@Model.NovoEvento.Titulo" />
+                </div>
+
                 <span class="text-danger" asp-validation-for="@Model.NovoEvento.Titulo"></span>
             </div>
 
@@ -34,7 +43,11 @@
             </div>
 
             <div class="mb-3">
-                <input class="form-control" type="datetime-local" placeholder="Data" asp-for="@Model.NovoEvento.Data" value="" />
+                <div class="card border-0">
+                    <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle"></span>
+                    <input class="form-control" type="datetime-local" placeholder="Data" asp-for="@Model.NovoEvento.Data" value="" />
+                </div>
+
                 <span class="text-danger" asp-validation-for="@Model.NovoEvento.Data"></span>
             </div>
 

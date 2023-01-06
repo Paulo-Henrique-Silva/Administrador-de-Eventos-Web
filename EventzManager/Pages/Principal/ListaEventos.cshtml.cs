@@ -6,7 +6,7 @@ namespace EventzManager.Pages.Principal
 {
     public class ListaEventosModel : PageModel
     {
-        public List<Evento> Eventos { get; set; } = new List<Evento>();
+        public List<Evento> EventosView { get; set; } = new List<Evento>();
 
         private readonly BancoDeDados Contexto;
 
@@ -27,17 +27,17 @@ namespace EventzManager.Pages.Principal
 
             Response.Cookies.Append("id_usuario", id.ToString());
 
-            //obtém lista de eventos
-            List<Evento> eventos = Contexto.Eventos.Where(e => e.UsuarioId == id).OrderBy(x => x.Data).ToList();
-            Eventos = eventos.ToList();
+            //obtém lista de eventos no bd
+            List<Evento> eventosNoBd = Contexto.Eventos.Where(e => e.UsuarioId == id).OrderBy(x => x.Data).ToList();
+            EventosView = eventosNoBd.ToList();
 
             //coloca os eventos que possuem a data expirada por último na lista.
-            foreach (var evento in eventos)
+            foreach (var evento in eventosNoBd)
             {
                 if (evento.Data < DateTime.Now)
                 {
-                    Eventos.Remove(evento);
-                    Eventos.Add(evento);
+                    EventosView.Remove(evento);
+                    EventosView.Add(evento);
                 }
             }
         }

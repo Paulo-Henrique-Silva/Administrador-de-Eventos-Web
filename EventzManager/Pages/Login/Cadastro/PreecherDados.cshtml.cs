@@ -36,9 +36,9 @@ namespace EventzManager.Pages.Login.Cadastro
         public IActionResult OnPostCadastrar()
         {
             if (Contexto.Usuarios.Any(x => x.Email == NovoUsuarioView.Email))
-                ModelState.AddModelError("NovoUsuarioView.Email", "Este email já está cadastrado.");
+                ModelState.AddModelError($"{nameof(NovoUsuarioView)}.{nameof(NovoUsuarioView.Email)}", "Este email já está cadastrado.");
             else if (ConfirmacaoSenha != NovoUsuarioView.Senha)
-                ModelState.AddModelError("NovoUsuarioView.Senha", "Os campos de senha e confirmar senha precisam ser iguais.");
+                ModelState.AddModelError($"{nameof(NovoUsuarioView)}.{nameof(NovoUsuarioView.Senha)}", "Os campos de senha e confirmar senha precisam ser iguais.");
 
             if (ModelState.IsValid)
             {

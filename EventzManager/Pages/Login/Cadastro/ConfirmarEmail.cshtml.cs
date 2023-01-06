@@ -72,7 +72,7 @@ namespace EventzManager.Pages.Login.Cadastro
             if (usuarioNoBd != null)
             {
                 TempData["email"] = usuarioNoBd.Email;
-                ModelState.AddModelError("CodigoSegurancaView", "Código incorreto.");
+                ModelState.AddModelError(nameof(CodigoSegurancaView), "Código incorreto.");
             }
         }
 

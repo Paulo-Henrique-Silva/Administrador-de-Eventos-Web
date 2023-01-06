@@ -32,13 +32,13 @@ namespace EventzManager.Pages.Login.EsqueceuSenha
         {
             if (!ModelState.IsValid)
             {
-                ModelState.AddModelError("Email", "Email inválido.");
+                ModelState.AddModelError(nameof(Email), "Email inválido.");
                 return Page();
             }
 
             if (!Contexto.Usuarios.Any(x => x.Email == Email))
             {
-                ModelState.AddModelError("Email", "Não existe uma conta cadastrada com este email.");
+                ModelState.AddModelError(nameof(Email), "Não existe uma conta cadastrada com este email.");
                 return Page();
             }
 

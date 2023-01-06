@@ -58,7 +58,7 @@ namespace EventzManager.Pages.Login.EsqueceuSenha
                 }
                 catch (Exception ex)
                 {
-                    ModelState.AddModelError("CodigoSeguranca", ex.Message + "Um erro ocorreu. Tente novamente");
+                    TempData["erro"] = ex.Message + "Um erro ocorreu. Tente novamente";
                 }
             }
         }
@@ -72,7 +72,7 @@ namespace EventzManager.Pages.Login.EsqueceuSenha
                 TempData["email"] = usuario.Email;
                 Response.Cookies.Append("id_usuario", id.ToString());
 
-                ModelState.AddModelError("CodigoSeguranca", "Código incorreto.");
+                ModelState.AddModelError(nameof(CodigoSegurancaView), "Código incorreto.");
             }
         }
 
