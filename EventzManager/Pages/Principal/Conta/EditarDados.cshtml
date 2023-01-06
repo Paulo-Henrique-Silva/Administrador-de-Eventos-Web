@@ -7,21 +7,21 @@
 
 <div class="row mb-3">
     <div class="col-6">
-        <a class="btn btn-secondary" asp-area="" asp-page="/Principal/ListaEventos" asp-route-id="@TempData["id_usuario"]">&ang; Voltar</a>
+        <a class="btn btn-lg btn-secondary" asp-area="" asp-page="/Principal/ListaEventos" asp-route-id="@TempData["id_usuario"]">&lt; Voltar</a>
     </div>
 
     <div class="dropend col-6 text-end">
-        <button class="btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <button class="btn btn-lg btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             <img class="me-2" src="/imagens/mais_acoes.svg" alt="MAIS ACOES" aria-label="MAIS ACOES" /> Mais ações
         </button>
         <ul class="dropdown-menu">
             <li>
-                <a class="dropdown-item" onclick="return confirm('Tem certeza que deseja sair da sua conta?')" asp-area="" asp-page="/Login/Entrar">
+                <a class="dropdown-item d-flex align-items-end justify-content-start" asp-area="" asp-page="/Login/Entrar">
                     <img class="me-2 img-fluid center-block" src="/imagens/sair.svg" alt="SAIR" aria-label="SAIR" /> Sair
                 </a>
             </li>
             <li>
-                <a class="dropdown-item" asp-area="" asp-page="/Principal/Conta/ExcluirConta" asp-route-id="@TempData["id_usuario"]">
+                <a class="dropdown-item d-flex align-items-end justify-content-start" asp-area="" asp-page="/Principal/Conta/ExcluirConta" asp-route-id="@TempData["id_usuario"]">
                     <img class="me-2 img-fluid center-block" src="/imagens/excluir.svg" alt="EXCLUIR" aria-label="EXCLUIR" /> Excluir conta
                 </a>
             </li>
@@ -54,7 +54,7 @@
             </div>
 
             <div class="input-group mb-3">
-                <input class="form-control" type="password" readonly placeholder="Senha" />
+                <input class="form-control" type="password" readonly placeholder="Senha" style="box-shadow: none;" />
                 <a class="input-group-text link-primary" asp-area="" asp-page="/Principal/Conta/AlterarSenha" asp-route-id="@TempData["id_usuario"]">Alterar</a>
             </div>
 

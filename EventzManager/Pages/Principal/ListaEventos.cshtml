@@ -6,22 +6,22 @@
 }
 
 <div class="col-12 col-sm-10 col-md-8 m-auto text-center">
-    <a class="btn btn-secondary" asp-area="" asp-page="/Principal/Acoes/Adicionar" asp-route-id="@TempData["id_usuario"]">+ Adicionar</a>
+    <a class="btn btn-lg btn-secondary" asp-area="" asp-page="/Principal/Acoes/Adicionar" asp-route-id="@TempData["id_usuario"]">+ Adicionar</a>
     <hr />
 
     <!--Eventos do usuário-->
     @foreach (var evento in Model.EventosView)
     {
-        <div class="card mb-3">
-            <div class="card-body row align-items-center">                
+        <div class="card mb-3" style="@(evento.Data < DateTime.Now ? "background-color: var(--cinza);" : "")">
+            <div class="card-body row align-items-center">
 
                 <div class="col-sm-12 col-md-7 my-2 text-start">
                     <p class="card-title fw-bold">@evento.Titulo</p>
                     <p class="card-text">@evento.Descricao</p>
                 </div>
                 <div class="col-6 col-md-3 my-2 text-center">
-                    <span class="text-nowrap">@evento.Data.ToShortDateString()</span>
-                    <span class="text-nowrap">@evento.Data.ToShortTimeString()</span>
+                    <span class="text-nowrap text-colored">@evento.Data.ToShortDateString()</span>
+                    <span class="text-nowrap text-colored">@evento.Data.ToShortTimeString()</span>
                 </div>
                 <div class="col-6 col-md-1 my-2 text-center">
 
@@ -31,17 +31,17 @@
                     }
 
                     <div class="dropend">
-                        <button class="btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img class="me-2" src="/imagens/mais_acoes.svg" alt="MAIS ACOES" aria-label="MAIS ACOES" />
+                        <button class="btn d-flex align-items-center justify-content-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="/imagens/mais_acoes.svg" alt="MAIS ACOES" aria-label="MAIS ACOES" />
                         </button>
                         <ul class="dropdown-menu">
                             <li>
-                                <a class="dropdown-item" asp-area="" asp-page="/Principal/Acoes/Editar" asp-route-idusuario="@TempData["id_usuario"]" asp-route-idevento="@evento.Id">
+                                <a class="dropdown-item d-flex align-items-end justify-content-start" asp-area="" asp-page="/Principal/Acoes/Editar" asp-route-idusuario="@TempData["id_usuario"]" asp-route-idevento="@evento.Id">
                                     <img class="me-2 img-fluid" src="/imagens/editar.svg" alt="EDITAR" aria-label="EDITAR" /> Editar
                                 </a>
                             </li>
                             <li>
-                                <a class="dropdown-item" onclick="return confirm('Tem certeza que deseja excluir o evento?')" asp-page-handler="Deletar" asp-route-id="@evento.Id">
+                                <a class="dropdown-item d-flex align-items-end justify-content-start" onclick="return confirm('Tem certeza que deseja excluir o evento?')" asp-page-handler="Deletar" asp-route-id="@evento.Id">
                                     <img class="me-2 img-fluid" src="/imagens/excluir.svg" alt="EXCLUIR" aria-label="EXCLUIR" /> Excluir
                                 </a>
                             </li>

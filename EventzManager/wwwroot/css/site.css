@@ -81,6 +81,10 @@ button.accept-policy {
     line-height: 60px;
 }
 
+.navbar {
+    background-image: linear-gradient(var(--azul1), var(--azul2));
+}
+
 .btn{
     font-weight: bold;
     border: none;
@@ -105,4 +109,46 @@ button.accept-policy {
     border: none;
     box-shadow: 2px 2px 10px var(--cinza);
     border-radius: 20px;
+}
+
+.login .card {
+    box-shadow: 4px -4px 20px var(--azul2), -4px 4px 20px var(--azul2);
+}
+
+.link-primary {
+    font-weight: 600;
+    color: var(--azul1);
+}
+
+.text-danger {
+    background: var(--vermelho);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.form-control {
+    background: none;
+    border: none;
+    border-radius: 100px;
+    box-shadow: 2px 2px 10px var(--cinza);
+}
+
+.input-group .link-primary {
+    border: none;
+    border-radius: 0px 20px 20px 0px;
+}
+
+.descricao { /*Input multlinha da descrição*/
+    border-radius: 20px;
+}
+
+.dropdown-menu {
+    background-color: var(--branco-suave);
+}
+
+.dropdown-menu a, .text-colored {
+    font-weight: bold;
+    background: linear-gradient(var(--azul1), var(--azul2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }

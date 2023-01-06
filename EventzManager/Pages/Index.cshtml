@@ -16,10 +16,6 @@
     <link rel="stylesheet" href="~/EventzManager.styles.css" asp-append-version="true" />
 
     <style>
-        .navbar {
-            background-image: linear-gradient(var(--azul1), var(--azul2));
-        }
-
         h1{
             color: var(--preto-suave);
         }
@@ -46,11 +42,7 @@
                     <img class="me-2 img-fluid" src="/imagens/logo_branco.svg" alt="LOGO" aria-label="LOGO"/>
                     <span>Eventz Manager</span>
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end">
+                <div class="justify-content-end">
                     <ul class="navbar-nav">
                         <li class="nav-item me-2 mb-2 bg-light" style="border-radius: 100px">
                             <a class="btn btn-secondary" asp-area="" asp-page="/Login/Entrar" id="btn-entrar">Entrar</a>
@@ -71,20 +63,20 @@
                     <h1 class="display-3 fw-bold" id="h-eventos">EVENTOS</h1>
                 </div>
 
-                <p>
+                <p class="mb-5">
                     Lorem neque ridiculus lobortis cubilia parturient. Fusce felis scelerisque nec luctus nisi. Conubia sit mauris nullam lobortis proin ut nibh urna vulputate ac. Mi mauris hymenaeos adipiscing parturient cras nulla tempus eu eleifend pede mauris mi. Sagittis dapibus iaculis magnis at et est amet eu sollicitudin vehicula.
                 </p>
 
-                <a class="btn btn-primary mb-5" asp-area="" asp-page="/Login/Entrar">VER SISTEMA</a>
+                <a class="btn btn-lg btn-primary mb-5" asp-area="" asp-page="/Login/Entrar">VER SISTEMA</a>
+            </div>
+
+            <div class="container mt-5 p-2">
+                <a class="btn btn-primary btn-sm d-flex align-items-center justify-content-center" href="https://github.com/Paulo-Henrique-Silva/Administrador-de-Eventos-Web" style="width: 50px; height: 50px;" data-bs-toggle="tooltip" data-bs-title="Reposítório no GitHub">
+                    <img class="img-fluid" src="/imagens/github_logo.svg" alt="GITHUB" aria-label="GITHUB" />
+                </a>
             </div>
         </main>
     </div>
-
-    <footer class="footer text-muted">
-        <div class="container">
-            <a class="btn btn-primary" href="https://github.com/Paulo-Henrique-Silva/Administrador-de-Eventos-Web">C</a>
-        </div>
-    </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

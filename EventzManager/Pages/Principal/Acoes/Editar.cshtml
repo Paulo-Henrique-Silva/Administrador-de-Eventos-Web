@@ -6,7 +6,7 @@
 }
 
 <div class="mb-3">
-    <a class="btn btn-secondary" asp-area="" asp-page="/Principal/ListaEventos" asp-route-id="@TempData["id_usuario"]">&ang; Voltar</a>
+    <a class="btn btn-lg btn-secondary" asp-area="" asp-page="/Principal/ListaEventos" asp-route-id="@TempData["id_usuario"]">&lt; Voltar</a>
 </div>
 
 @if (TempData["erro"] != null)
@@ -34,7 +34,7 @@
             </div>
 
             <div class="mb-3">
-                <textarea class="form-control" type="text" placeholder="Descrição" rows="3" asp-for="@Model.Evento.Descricao"></textarea>
+                <textarea class="form-control descricao" type="text" placeholder="Descrição" rows="3" asp-for="@Model.Evento.Descricao"></textarea>
                 <span class="text-danger" asp-validation-for="@Model.Evento.Descricao"></span>
             </div>
 

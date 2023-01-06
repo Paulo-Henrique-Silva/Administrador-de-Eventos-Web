@@ -43,7 +43,9 @@ namespace EventzManager.Pages.Principal.Acoes
             id = uint.Parse(cookieId.ToString());
             usuario = Contexto.Usuarios.Find(id);
 
-            if (ModelState.IsValid && usuario != null)
+            const int MAX_EVENTOS = 50;
+
+            if (ModelState.IsValid && usuario != null && Contexto.Eventos.Where(x => x.UsuarioId == usuario.Id).Count() < MAX_EVENTOS)
             {
                 Evento evento = new()
                 {
@@ -67,6 +69,11 @@ namespace EventzManager.Pages.Principal.Acoes
             }
             else if (usuario == null)
                 return RedirectToPage("/Index");
+            else if (!(Contexto.Eventos.Where(x => x.UsuarioId == usuario.Id).Count() < MAX_EVENTOS))
+            {
+                TempData["erro"] = $"Número máximo de eventos ({MAX_EVENTOS}) foi alcançado. Não é possível inserir mais.";
+                return RedirectToPage("/Principal/Acoes/Adicionar", new { id });
+            }
 
             TempData["erro"] += "Não foi possível adicionar. Tente novamente.";
             return RedirectToPage("/Principal/Acoes/Adicionar", new { id });
