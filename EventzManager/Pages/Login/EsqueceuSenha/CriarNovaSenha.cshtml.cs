@@ -41,7 +41,7 @@ namespace EventzManager.Pages.Login.EsqueceuSenha
             if (NovaSenha != ConfirmacaoSenha)
             {
                 ModelState.AddModelError("NovaSenha", "Os campos de 'Nova senha' e 'Confirmar senha' devem ser iguais.");
-                return Page();
+                return Page(); //jjjkkl
             }
 
             string? cookieId = Request.Cookies["id_usuario"];
