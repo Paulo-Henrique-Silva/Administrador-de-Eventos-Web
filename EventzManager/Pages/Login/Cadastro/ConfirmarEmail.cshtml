@@ -16,13 +16,13 @@
     <div class="card-body">
         <form method="post" asp-page-handler="Confirmar">
 
-            <div class="text-center mb-3">
-                <img class="mb-1 img-fluid" src="/imagens/logo_azul.svg" alt="Eventz Manager" arial-label="Eventz Manager" />
-                <h1 class="card-title">Confirmação</h1>
+            <div class="text-center mb-4">
+                <img class="mb-2 img-fluid" src="/imagens/logo_azul.svg" alt="Eventz Manager" arial-label="Eventz Manager" />
+                <h1 class="card-title mb-1">Confirmação</h1>
                 <p class="card-text">Enviamos um código de confirmação para o email <b>‘@TempData["email"]’</b>. Por favor, insira-o no campo abaixo:</p>
             </div>
 
-            <div class="mb-3">
+            <div class="mb-4">
                 <input class="form-control" type="text" placeholder="Código" asp-for="@Model.CodigoSegurancaView" />
                 <span class="text-danger" asp-validation-for="@Model.CodigoSegurancaView"></span>
             </div>

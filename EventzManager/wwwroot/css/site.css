@@ -98,8 +98,7 @@ button.accept-policy {
 
 .btn-secondary:not(#btn-entrar) {
     box-shadow: 2px 2px 10px var(--cinza);
-    background: linear-gradient(var(--azul1), var(--azul2));
-
+    background: -webkit-linear-gradient(var(--azul1), var(--azul2));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -151,4 +150,10 @@ button.accept-policy {
     background: linear-gradient(var(--azul1), var(--azul2));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+.dropdown-menu a:active {
+    background: var(--cinza);
+    -webkit-background-clip: border-box;
+    -webkit-text-fill-color: var(--azul2);
 }

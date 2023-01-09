@@ -8,9 +8,9 @@
 <div class="card m-auto">
     <div class="card-body">
         <form method="post" asp-page-handler="Salvar">
-            <div class="text-center mb-3">
-                <img class="mb-1 img-fluid" src="/imagens/logo_azul.svg" alt="Eventz Manager" arial-label="Eventz Manager" />
-                <h1 class="card-title">Nova senha</h1>
+            <div class="text-center mb-4">
+                <img class="mb-2 img-fluid" src="/imagens/logo_azul.svg" alt="Eventz Manager" arial-label="Eventz Manager" />
+                <h1 class="card-title mb-1">Nova senha</h1>
                 <p class="card-text">Crie uma nova para sua conta</p>
             </div>
 
@@ -19,7 +19,7 @@
                 <span class="text-danger" asp-validation-for="@Model.NovaSenha"></span>
             </div>
             
-            <div class="mb-3">
+            <div class="mb-4">
                 <input class="form-control" type="password" placeholder="Confirmar nova senha" asp-for="@Model.ConfirmacaoSenha"/>
                 <span class="text-danger" asp-validation-for="@Model.ConfirmacaoSenha"></span>
             </div>

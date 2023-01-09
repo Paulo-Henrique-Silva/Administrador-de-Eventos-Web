@@ -19,8 +19,8 @@
 <div class="acoes-form card m-auto">
     <div class="card-body">
         <form method="post" asp-page-handler="Editar">
-            <div class="text-center mb-3">
-                <p class="card-title fw-bold">Editar Evento</p>
+            <div class="text-center mb-4">
+                <p class="card-title fs-4 fw-bold mb-2">Editar Evento</p>
                 <span class="card-subtitle">Altere os campos</span>
             </div>
 
@@ -38,7 +38,7 @@
                 <span class="text-danger" asp-validation-for="@Model.Evento.Descricao"></span>
             </div>
 
-            <div class="mb-3">
+            <div class="mb-4">
                 <div class="card border-0">
                     <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle"></span>
                     <input class="form-control" type="datetime-local" placeholder="Data" asp-for="@Model.Evento.Data" />

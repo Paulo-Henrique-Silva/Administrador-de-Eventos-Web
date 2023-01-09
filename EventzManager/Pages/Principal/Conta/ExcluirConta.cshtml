@@ -7,7 +7,7 @@
 
 <div class="row mb-3">
     <div class="col-6">
-        <a class="btn btn-secondary" asp-area="" asp-page="/Principal/ListaEventos" asp-route-id="@TempData["id_usuario"]">&lt; Voltar</a>
+        <a class="btn btn-lg btn-secondary" asp-area="" asp-page="/Principal/ListaEventos" asp-route-id="@TempData["id_usuario"]">&lt; Voltar</a>
     </div>
 </div>
 
@@ -21,11 +21,12 @@
 <div class="acoes-form card m-auto">
     <div class="card-body">
         <form method="post" asp-page-handler="Excluir">
-            <div class="text-center">
-                <p class="card-title fw-bold">Insira a senha da conta para completar a exclusão</p>
+            <div class="text-center mb-4">
+                <p class="card-title fs-4 fw-bold mb-2">Excluir conta</p>
+                <p class="card-subtitle">Insira a senha para completar a exclusão</p>
             </div>
 
-            <div class="mb-3">
+            <div class="mb-4">
                 <input class="form-control" type="password" placeholder="Senha" asp-for="@Model.SenhaView" />
                 <span class="text-danger" asp-validation-for="@Model.SenhaView"></span>
             </div>

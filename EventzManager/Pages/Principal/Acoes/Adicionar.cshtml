@@ -23,8 +23,8 @@
 
     <div class="card-body">
         <form method="post" asp-page-handler="Adicionar">
-            <div class="text-center mb-3">
-                <p class="card-title fw-bold">Adicionar Evento</p>
+            <div class="text-center mb-4">
+                <p class="card-title fs-4 fw-bold mb-2">Adicionar Evento</p>
                 <span class="card-subtitle">Preencha as informações</span>
             </div>
 
@@ -42,7 +42,7 @@
                 <span class="text-danger" asp-validation-for="@Model.NovoEvento.Descricao"></span>
             </div>
 
-            <div class="mb-3">
+            <div class="mb-4">
                 <div class="card border-0">
                     <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle"></span>
                     <input class="form-control" type="datetime-local" placeholder="Data" asp-for="@Model.NovoEvento.Data" value="" />

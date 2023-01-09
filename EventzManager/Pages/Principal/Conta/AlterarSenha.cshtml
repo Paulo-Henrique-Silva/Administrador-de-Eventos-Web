@@ -7,7 +7,7 @@
 
 <div class="row mb-3">
     <div class="col-6">
-        <a class="btn btn-secondary" asp-area="" asp-page="/Principal/ListaEventos" asp-route-id="@TempData["id_usuario"]">&lt; Voltar</a>
+        <a class="btn btn-lg btn-secondary" asp-area="" asp-page="/Principal/ListaEventos" asp-route-id="@TempData["id_usuario"]">&lt; Voltar</a>
     </div>
 </div>
 
@@ -21,8 +21,8 @@
 <div class="acoes-form card m-auto">
     <div class="card-body">
         <form method="post" asp-page-handler="Alterar">
-            <div class="text-center">
-                <p class="card-title fw-bold">Alterar senha</p>
+            <div class="text-center mb-4">
+                <p class="card-title fs-4 fw-bold mb-2">Alterar senha</p>
             </div>
 
             <div class="mb-3">
@@ -35,14 +35,12 @@
                 <span class="text-danger" asp-validation-for="@Model.NovaSenhaView"></span>
             </div>
 
-            <div class="mb-3">
+            <div class="mb-4">
                 <input class="form-control" type="password" placeholder="Confirme nova senha" asp-for="@Model.ConfirmacaoNovaSenhaView" />
                 <span class="text-danger" asp-validation-for="@Model.ConfirmacaoNovaSenhaView"></span>
             </div>
 
-             <div class="mb-2">
-                <button class="btn btn-primary w-100" type="submit">Salvar</button>
-             </div>
+             <button class="btn btn-primary w-100" type="submit">Salvar</button>
         </form>
     </div>
 </div>

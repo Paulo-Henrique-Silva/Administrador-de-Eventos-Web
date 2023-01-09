@@ -23,15 +23,15 @@
                     <span class="text-nowrap text-colored">@evento.Data.ToShortDateString()</span>
                     <span class="text-nowrap text-colored">@evento.Data.ToShortTimeString()</span>
                 </div>
-                <div class="col-6 col-md-1 my-2 text-center">
+                <div class="col-6 col-md-1 my-2 d-flex align-items-center justify-content-center">
 
                     @if (evento.Data < DateTime.Now)
                     {
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">Expirado</span>
+                        <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-danger">Expirado</span>
                     }
 
                     <div class="dropend">
-                        <button class="btn d-flex align-items-center justify-content-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button class="btn btn-sm d-flex align-items-center justify-content-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src="/imagens/mais_acoes.svg" alt="MAIS ACOES" aria-label="MAIS ACOES" />
                         </button>
                         <ul class="dropdown-menu">
