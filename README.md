@@ -17,3 +17,5 @@ O sistema foi feito com o intuito de aprimorar o aprendizado das tecnologias cit
 # Informações Adicionais
 
 No estado atual, o projeto não funcionará corretamente, pois é necessário que haja um email autorizado para softwares terceiros do windows nos arquivos **ConfirmarEmail.cshtml.cs** e **ConfirmarCodigo.cshtml.cs**, a fim de enviar códigos de verificação aos emails das contas. Dessa forma, insira as informações do email nos campos:
+
+![](https://github.com/Paulo-Henrique-Silva/Administrador-de-Eventos-Web/blob/master/imagens/email.PNG)
